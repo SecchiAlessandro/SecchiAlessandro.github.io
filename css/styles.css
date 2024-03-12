@@ -247,8 +247,9 @@ sup {
 }
 
 a {
-  color: var(--bs-link-color);
-  text-decoration: underline;
+  font-size: smaller;
+  color: var(--bs-purple);
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);
