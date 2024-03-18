@@ -10978,3 +10978,11 @@ section.resume-section .resume-section-content {
         border-radius: 10px; /* Add rounded corners */
         overflow: hidden; /* Hide overflow content */
 }
+
+.main-content {
+  margin: 50px auto; /* Adds space at the top and centers the content */
+  max-width: 600px; /* Adjust this value according to your preference */
+  padding: 0 20px;
+  font-family: Arial, sans-serif;
+  text-align: center; /* Centers the content horizontally */
+}
