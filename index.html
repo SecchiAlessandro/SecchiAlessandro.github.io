@@ -306,40 +306,52 @@
                         <div class="flex-grow-1">
                             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                                 <div class="flex-grow-1">
-                                    <h3 class="mb-0"> Hitachi LumadaAI</h3>
+                                    <h3 class="mb-0"> Hitachi Lumada AI</h3>
                                      <br>
 
                                         <p>
                                             More frequently, I hear talk about highly specialized small agents in a multi-agent frameworks.
                                         </p>
+                                        <br>
                                         
                                                                                
                                         <p>
                                             CrewAI, LangGraph, MetaGPT, LlamaIndex, Autogen are the most famous ones used in interesting application such as:
                                             <br>
+                                            <br>
                                             📨 	Automating the process of checking new emails and creating drafts based on internal know-how.
                                             <br>
+                                            <br>
                                             👨‍💼 Replicating the structure of a software company (each agent is trained on their job profile), where from a single line requirement as input, it outputs competitive analysis, data structures, APIs, documents, software repository (see Pythagora 🤯)..
+                                            <br>
                                             <br>
                                             <img src="assets/img/MetaGPT.jpg" width="800" height="600">
                                         </p>
                                             <br>
+                                            <br>
                                         <p>
                                             Working at one of the Hitachi companies, gave me the inspiration to build a multiagent framework to exploit the huge amount of knowledge in information technology (IT) business as well as the operational technology (OT), a special combination that only a few companies can afford.
+                                            <br>
                                             <br>
                                             Therefore, by looking at the Lumada concept, I tried to build an application with LangGraph, where each agent is trained on the respective company data (scraped from the website section: products and solutions) 
                                             and the supervisor (LumadaAI) can choose a specific agent (company) to perform the RAG (retrieval augmented generation) on the training data. 
                                             In addition, I have added two agents called "Researcher" and "Coder" to perform a general web search and basic data analysis calculations.
                                             <br>
+                                            <br>
                                             <img src="assets/img/LumadaAI.jpg" width="800" height="600">
                                             <br>
+                                            <br>
                                             In this framework, each agent is a node in the graph, and their connections are represented as an edge. The control flow is managed by edges, and they communicate by adding to the graph's state.
+                                            <br>
                                             <br>
                                             With LangGraph I could create a cyclical and non-linear workflows where the agents can revisit and refine their actions based on new data, leading to more accurate and efficient outcomes. 
                                             <b>Specialization, collaboration, flexibility and scalability</b> are the main advantages of this kind of multi-agent systems.
                                         </p>
                                         <p>
+                                            <br>
+                                            <br>
                                             This is a basic prototype and many improvements are possible:
+                                            <br>
                                             <br>
                                             <ul>
                                                 <li>Improve the RAG code with a self-corrective logic (which incorporates self-reflection / self-grading on retrieved documents)</li>
@@ -350,11 +362,16 @@
                                             <br>
                                             <img src="assets/img/RAG.jpg" width="800" height="600">
                                         <p>
+                                            <br>
+                                            <br>
                                             In the example below, I asked LumadaAI to support me in the planning, building, operating and maintaining of a new hospital.
                                             <br>
                                             The tool is retrieving information from Hitachi Energy, Hitachi Astemo, Hitachi HighTech, Hitachi Rail, Hitachi Construction Machinery and GlobalLogic.
                                             <br>
+                                            <br>
                                             🟢 I believe this kind of application can enhance the general human <b>creativity</b> and support many jobs by reducing the complexity of the problem, combining a huge amount of data, to come up with new products and solutions.
+                                            <br>
+                                            <br>
                                             
                                             <video width="500px"
                                                    height="400px" 
