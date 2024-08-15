@@ -302,6 +302,81 @@
 
 
 
+ <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0"> Hitachi LumadaAI</h3>
+                                     <br>
+
+                                        <p>
+                                            More frequently, I hear talk about highly specialized small agents in a multi-agent frameworks.
+                                        </p>
+                                        
+                                                                               
+                                        <p>
+                                            CrewAI, LangGraph, MetaGPT, LlamaIndex, Autogen are the most famous ones used in interesting application such as:
+                                            <br>
+                                            📨 	Automating the process of checking new emails and creating drafts based on internal know-how.
+                                            <br>
+                                            👨‍💼 Replicating the structure of a software company (each agent is trained on their job profile), where from a single line requirement as input, it outputs competitive analysis, data structures, APIs, documents, software repository (see Pythagora 🤯)..
+                                            <br>
+                                            <img src="assets/img/MetaGPT.png" width="800" height="600">
+                                        </p>
+                                            <br>
+                                        <p>
+                                            Working at one of the Hitachi companies, gave me the inspiration to build a multiagent framework to exploit the huge amount of knowledge in information technology (IT) business as well as the operational technology (OT), a special combination that only a few companies can afford.
+                                            <br>
+                                            Therefore, by looking at the Lumada concept, I tried to build an application with LangGraph, where each agent is trained on the respective company data (scraped from the website section: products and solutions) 
+                                            and the supervisor (LumadaAI) can choose a specific agent (company) to perform the RAG (retrieval augmented generation) on the training data. 
+                                            In addition, I have added two agents called "Researcher" and "Coder" to perform a general web search and basic data analysis calculations.
+                                            <br>
+                                            <img src="assets/img/LumadaAI.png" width="800" height="600">
+                                            <br>
+                                            In this framework, each agent is a node in the graph, and their connections are represented as an edge. The control flow is managed by edges, and they communicate by adding to the graph's state.
+                                            <br>
+                                            With LangGraph I could create a cyclical and non-linear workflows where the agents can revisit and refine their actions based on new data, leading to more accurate and efficient outcomes. 
+                                            <b>Specialization, collaboration, flexibility and scalability</b> are the main advantages of this kind of multi-agent systems.
+                                        </p>
+                                        <p>
+                                            This is a basic prototype and many improvements are possible:
+                                            <br>
+                                            <ul>
+                                                <li>Improve the RAG code with a self-corrective logic (which incorporates self-reflection / self-grading on retrieved documents)</li>
+                                                <li>Increase the number and quality of training data</li>
+                                                <li>Add an agent trained on the customer's data</li>
+                                                <li>Improve the quality of the user prompt</li>
+                                            </ul>
+                                            <br>
+                                            <img src="assets/img/RAG.png" width="800" height="600">
+                                        <p>
+                                            In the example below, I asked LumadaAI to support me in the planning, building, operating and maintaining of a new hospital.
+                                            <br>
+                                            The tool is retrieving information from Hitachi Energy, Hitachi Astemo, Hitachi HighTech, Hitachi Rail, Hitachi Construction Machinery and GlobalLogic.
+                                            <br>
+                                            🟢 I believe this kind of application can enhance the general human <b>creativity</b> and support many jobs by reducing the complexity of the problem, combining a huge amount of data, to come up with new products and solutions.
+                                            
+                                            <video width="500px"
+                                                   height="400px" 
+                                                   controls="controls">
+                                                <source src="assets/img/chatbot.mp4"
+                                                    type="video/mp4" />
+                                            </video>
+                                        </p>
+
+                                        <p>
+                                            "𝘊𝘰𝘪𝘯𝘦𝘥 𝘧𝘳𝘰𝘮 𝘵𝘩𝘦 𝘸𝘰𝘳𝘥𝘴 "𝘪𝘭𝘭𝘶𝘮𝘪𝘯𝘢𝘵𝘦" 𝘢𝘯𝘥 "𝘥𝘢𝘵𝘢", 𝘵𝘩𝘦 𝘯𝘢𝘮𝘦 𝘓𝘶𝘮𝘢𝘥𝘢 𝘦𝘮𝘣𝘰𝘥𝘪𝘦𝘴 𝘰𝘶𝘳 𝘨𝘰𝘢𝘭 𝘰𝘧 𝘴𝘩𝘪𝘯𝘪𝘯𝘨 𝘢 𝘭𝘪𝘨𝘩𝘵 𝘰𝘯 𝘰𝘶𝘳 𝘤𝘶𝘴𝘵𝘰𝘮𝘦𝘳𝘴' 𝘥𝘢𝘵𝘢 𝘢𝘯𝘥 𝘪𝘭𝘭𝘶𝘮𝘪𝘯𝘢𝘵𝘪𝘯𝘨 𝘪𝘵 𝘪𝘯 𝘴𝘶𝘤𝘩 𝘢 𝘸𝘢𝘺 𝘵𝘩𝘢𝘵 𝘸𝘦 𝘤𝘢𝘯 𝘦𝘹𝘵𝘳𝘢𝘤𝘵 𝘯𝘦𝘸 𝘪𝘯𝘴𝘪𝘨𝘩𝘵, 𝘵𝘩𝘦𝘳𝘦𝘣𝘺 𝘳𝘦𝘴𝘰𝘭𝘷𝘪𝘯𝘨 𝘰𝘶𝘳 𝘤𝘶𝘴𝘵𝘰𝘮𝘦𝘳𝘴' 𝘣𝘶𝘴𝘪𝘯𝘦𝘴𝘴 𝘪𝘴𝘴𝘶𝘦𝘴 𝘢𝘯𝘥 𝘤𝘰𝘯𝘵𝘳𝘪𝘣𝘶𝘵𝘪𝘯𝘨 𝘵𝘰 𝘵𝘩𝘦𝘪𝘳 𝘣𝘶𝘴𝘪𝘯𝘦𝘴𝘴 𝘨𝘳𝘰𝘸𝘵𝘩."
+                                        </p>
+                                        <br>
+                                        <p>"𝘛𝘰𝘸𝘢𝘳𝘥 𝘴𝘪𝘯𝘨𝘶𝘭𝘢𝘳𝘪𝘵𝘺, 𝘵𝘩𝘳𝘰𝘶𝘨𝘩 𝘵𝘩𝘦 𝘦𝘯𝘦𝘳𝘨𝘺 𝘵𝘳𝘢𝘯𝘴𝘪𝘵𝘪𝘰𝘯."</p>
+                                                               
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+
                     
 
 
