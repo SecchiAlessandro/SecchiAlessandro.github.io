@@ -407,7 +407,7 @@
                         <div class="flex-grow-1">
                             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                                 <div class="flex-grow-1">
-                                    <h3 class="mb-0"> ML Notes</h3>
+                                    <h3 class="mb-0"> MACHINE LEARNING NOTES</h3>
 
                                         <br>
                                     <br>
@@ -416,19 +416,18 @@
 
                                         <p>One reason is the so-called <strong>universal approximation property</strong>, which already holds for shallow neural networks with arbitrary width, consisting of just one layer.</p>
                                         
-                                        <p>Indeed, at the end of the eighties, it was proved by <strong>George Cybenko</strong> that neural networks with only one hidden layer and bounded sigmoidal activation functions (i.e.,</p>
+                                        <p>Indeed, at the end of the eighties, it was proved by <strong>George Cybenko</strong> that neural networks with only one hidden layer and bounded sigmoidal activation functions (i.e.,
                                         
                                         <div class="equation">
                                             lim<sub>x → ∞</sub>σ(x) → 1  and  lim<sub>x → −∞</sub>σ(x) → 0
                                         </div>
                                         
-                                        <p>can approximate generic classes of functions.</p>
+                                        can approximate generic classes of functions.</p>
                                         
                                         <p><strong>Kurt Hornik</strong> showed in 1991 that it is not the specific choice of the activation function that leads to the universal approximation property, but that it works for generic continuous non-polynomial functions.</p>
                                         
-                                        <p>— Christa Cuchiero (University of Vienna)</p>
                                         
-                                        <h2>CNN vs. Standard Feed Forward Networks 🖥️</h2>
+                                        <h4>CNN vs. Standard Feed Forward Networks 🖥️</h4>
                                         
                                         <p>A <strong>CNN</strong> (Convolutional Neural Network) differs from a standard feed forward neural network by the structure of hidden layers.</p>
                                         
@@ -506,16 +505,16 @@
                                         
                                         <p>Typical methods involve <strong>Discrete Time Finite Markov Decision Processes (MDP)</strong>.</p>
                                         
-                                        <img src="assets/img/ML1.png" width="520" height="385">
+                                        <img src="assets/img/ML1.png" width="520" height="222">
                                         <br>
-                                        <img src="assets/img/ML2.png" width="520" height="385">
+                                        <img src="assets/img/ML2.png" width="520" height="222">
                                         
                                         <ul>
                                             <li>In simple terms: <span class="equation">v<sup>*</sup>(x)</span> tells the agent how much reward it can expect if it starts in state x and always makes the best choices afterward.</li>
                                             <li>In simple terms: <span class="equation">q<sup>*</sup>(x, u)</span> tells the agent how much reward it can expect if it starts in state x, takes action u, and then makes the best decisions afterward.</li>
                                         </ul>
                                         
-                                        <img src="assets/img/ML3.png" width="520" height="385">
+                                        <img src="assets/img/ML3.png" width="520" height="222">
                                         
                                         <p><strong>P</strong> is the state transition probability matrix.</p>
                                         
@@ -525,15 +524,15 @@
                                             <li>An optimal policy must deliver the maximum expected return being in a given state.</li>
                                         </ul>
 
-                                        <img src="assets/img/ML4.png" width="520" height="385">
+                                        <img src="assets/img/ML4.png" width="520" height="222">
                                     
-                                        <b>Equation Rewrite</b>
+                                    
                                         
                                         <p>So the equations can be rewritten as follows:</p>
 
-                                        <img src="assets/img/ML5.png" width="520" height="385">
+                                        <img src="assets/img/ML5.png" width="520" height="222">
                                         <br>
-                                        <img src="assets/img/ML6.png" width="520" height="385">
+                                        <img src="assets/img/ML6.png" width="520" height="222">
                                         
                                         <ul>
                                             <li>If the environment is exactly known, solving for <span class="equation">v<sup>*</sup></span> or <span class="equation">q<sup>*</sup></span> directly delivers the optimal policy. Once the values are known, the optimal policy can be derived by always choosing the action that maximizes these values.</li>
@@ -544,7 +543,7 @@
                                         
                                         <p>The agent explores the environment, tries different actions, and updates its <span class="equation">q(x, u)</span> values using this formula:</p>
                                         
-                                        <img src="assets/img/ML7.png" width="520" height="385">
+                                        <img src="assets/img/ML7.png" width="520" height="222">
                                     
                                         <p>In <strong>Neural Fitted Q-Learning</strong>: Instead of maintaining a table of q-values for each state-action pair (which can be huge in complex environments), a neural network is trained to predict these values.</p>
                                         
