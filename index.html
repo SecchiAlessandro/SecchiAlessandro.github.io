@@ -559,7 +559,237 @@
 
 
                           
-                                      
+
+
+                                        <br>
+                                        <br>
+                                        <br>
+
+                                        <h3 class="mb-0">Generative AI</h3>
+                                        <br>
+                                        
+                                        <p>Generative AI is typically powered by deep neural networks, especially transformer architectures, which excel at processing large datasets and understanding complex patterns.</p>
+                                        <br>
+                                        
+                                        <h4>Step-by-Step Through the Transformer with "Cat" 🐱</h4>
+                                        
+                                        <h5>1. Input Embedding and Positional Encoding</h5>
+                                        <ul>
+                                            <li>Each word in the sentence "The cat sits" is first converted into an embedding vector. For example, the word "cat" could be transformed into a vector like: <b>[1.2, -0.8, 0.6, …]</b></li>
+                                            <li>Then, positional encoding is added to this vector to capture the position of "cat" in the sentence. After adding positional encoding, "cat"’s vector might look like: <b>Embedding + PosEnc = [1.4, -0.7, 0.5, …]</b></li>
+                                        </ul>
+                                        
+                                        <h5>2. Self-Attention Mechanism 🤔</h5>
+                                        <ul>
+                                            <li>Generate the Query (Q), Key (K), and Value (V) vectors for each word. For "cat," let’s say:
+                                                <ul>
+                                                    <li><b>Q<sub>cat</sub> = [0.2, -0.3, 0.5, …]</b></li>
+                                                    <li><b>K<sub>cat</sub> = [0.1, -0.4, 0.7, …]</b></li>
+                                                    <li><b>V<sub>cat</sub> = [0.3, 0.2, -0.6, …]</b></li>
+                                                </ul>
+                                            </li>
+                                            <li>Calculate the attention score for "cat" in relation to other words in the sentence using the dot product of <b>Q<sub>cat</sub></b> with each word’s Key vector:
+                                                <ul>
+                                                    <li><b>Score<sub>cat, the</sub> = (Q<sub>cat</sub> ⋅ K<sub>the</sub>) / √d<sub>k</sub></b></li>
+                                                    <li><b>Score<sub>cat, cat</sub> = (Q<sub>cat</sub> ⋅ K<sub>cat</sub>) / √d<sub>k</sub></b></li>
+                                                    <li><b>Score<sub>cat, sits</sub> = (Q<sub>cat</sub> ⋅ K<sub>sits</sub>) / √d<sub>k</sub></b></li>
+                                                </ul>
+                                            </li>
+                                            <li>Apply Softmax to the scores to get attention weights, indicating how much "cat" should "focus" on each word. Suppose the results are: <b>Weights<sub>cat</sub> = [0.1, 0.8, 0.1]</b></li>
+                                            <li>The attention output for "cat" is a weighted sum of Value vectors: <b>Attention Output<sub>cat</sub> = (0.1 ⋅ V<sub>the</sub>) + (0.8 ⋅ V<sub>cat</sub>) + (0.1 ⋅ V<sub>sits</sub>)</b></li>
+                                        </ul>
+                                        
+                                        <h5>3. Multi-Head Attention 🎯</h5>
+                                        <ul>
+                                            <li>With multiple heads, "cat" has different sets of Q, K, and V vectors per head, capturing various semantic aspects. Outputs from each head are concatenated and transformed to merge back together.</li>
+                                        </ul>
+                                        
+                                        <h5>4. Feed-Forward Network 🔄</h5>
+                                        <ul>
+                                            <li>The attention output for "cat" passes through a feed-forward network to add complexity: <b>FFN<sub>cat</sub> = ReLU(W<sub>1</sub> ⋅ Attention Output<sub>cat</sub> + b<sub>1</sub>) W<sub>2</sub> + b<sub>2</sub></b></li>
+                                        </ul>
+                                        
+                                        <h5>5. Adding and Normalizing 🌐</h5>
+                                        <ul>
+                                            <li>A residual connection and layer normalization are applied: <b>Output<sub>cat</sub> = LayerNorm(Embedding<sub>cat</sub> + FFN<sub>cat</sub>)</b></li>
+                                        </ul>
+                                        
+                                        <h4>Putting It All Together 🧩</h4>
+                                        <p>After multiple layers, "cat" will be represented as a vector that captures its meaning in the sentence "The cat sits." This final vector is used for the next steps, like classification or generation. Each layer helps the model build richer contextual understanding, making "cat" aware of its relationship to "sits" and "the" based on the surrounding words and overall sentence meaning.</p>
+                                        
+                                        <h4>Training Objective 🎯</h4>
+                                        <p>For language models, the common training objective is to minimize the cross-entropy loss between the predicted sequence and the actual sequence.</p>
+
+
+
+
+                                        <br>
+                                        <br>
+                                        <br>
+
+
+                                        <h3 class="mb-0"> ML in Robotics (11.2024)</h3>
+                                        <br>
+                                        
+                                        <p>Machine Learning (ML) plays a crucial role in robotics, bringing more flexibility and adaptability to robotic systems. Let’s break down some core components of ML in robotics, including key concepts, challenges, and potential future directions.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>📊 Formulate</h4>
+                                        <ul>
+                                            <li>Predicting or identifying patterns in data to understand and improve robotic functions.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>🔍 Formalize</h4>
+                                        <ul>
+                                            <li><b>Representation</b>: Choose models that represent data patterns well, such as:
+                                                <ul>
+                                                    <li>Linear regression</li>
+                                                    <li>Random forests</li>
+                                                    <li>Neural networks</li>
+                                                </ul>
+                                            </li>
+                                            <li><b>Evaluation</b>: Measure model performance to ensure its effectiveness in tasks.</li>
+                                            <li><b>Optimization</b>: Maximize the model’s performance on the data given for the best outcomes.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>🚀 Deploy</h4>
+                                        <ul>
+                                            <li><b>MLOps</b>: Establish robust machine learning operations to ensure efficient deployment, monitoring, and scaling of models in robotics.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>🤖 Control Strategies in Robotics</h4>
+                                        
+                                        <p><b>Classical Control</b><br>
+                                        Breaks down the problem into <b>planning</b> and <b>control</b> phases, simplifying robotic task management.</p>
+                                        
+                                        <p><b>Reinforcement Learning (RL)</b><br>
+                                        Directly optimizes <b>task-level objectives</b> and leverages <b>domain randomization</b> to cope with model uncertainty. This allows the system to discover more <b>robust control responses</b> for better task handling.</p>
+                                        
+                                        <p><b>End-to-End Learning Control</b><br>
+                                        Integrates all steps seamlessly:</p>
+                                        <p>Sensors ➔ Perception (learning) ➔ Planning (learning from data) ➔ Control (learning)</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>🌐 Universality in Neural Networks</h4>
+                                        <p>A deep neural network can approximate <b>any continuous function</b> with <b>arbitrary accuracy</b> when its depth is large enough.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>Deep Reinforcement Learning</h4>
+                                        <p>Uses <b>deep neural networks</b> to represent the Q-network and trains this Q-network to predict total reward, enhancing learning efficiency and task success.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>🧠 Advanced Learning Techniques</h4>
+                                        
+                                        <ul>
+                                            <li><b>Optimal Control</b>: Focuses on finding the best control policy for the robot.</li>
+                                            <li><b>Imitation Learning</b>: Observe an expert and imitate their actions, such as observing the status of a mobile "Aloha" system.</li>
+                                            <li><b>Privileged Imitation Learning</b>: Uses expert knowledge for more efficient learning.</li>
+                                        </ul>
+                                        
+                                        <p><b>Policies</b><br>
+                                        Explicit, Implicit, and Diffusion Policies: Different methods of defining the robot’s behavior policy.</p>
+                                        
+                                        <p><b>Kalman Filter</b><br>
+                                        A mathematical method to estimate the internal state of a process, aiding robots in tracking and estimation tasks.</p>
+                                        
+                                        <p><b>RL Approaches</b></p>
+                                        <ul>
+                                            <li>Model-free vs. Model-based RL: Model-free relies on trial and error, while model-based uses a model of the environment.</li>
+                                            <li>Inverse RL: Learn the reward function by observing an expert. Once learned, it uses RL to create a policy based on that reward function.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>🤔 Challenges in Building Generalist Robots</h4>
+                                        
+                                        <ul>
+                                            <li>Unstructured and unpredictable environments</li>
+                                            <li>Generalization across embodiments – requires versatile hardware</li>
+                                            <li>Contextual understanding and high-level reasoning</li>
+                                            <li>Multi-tasking and priority balancing – goals and targets can be hard to specify</li>
+                                            <li>Regulatory, safety, and cost-related concerns</li>
+                                            <li>Limited robotic data, unlike the abundant web-scale text and image data</li>
+                                            <li>Constraints of current hardware and simulators</li>
+                                            <li>Requirement of dynamic models – many scenarios are hard to model accurately</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>Enhancing Robot Perception with AI</h4>
+                                        
+                                        <p><b>Vision-Language Models</b><br>
+                                        For advanced <b>robot perception</b>, merging vision and language.</p>
+                                        
+                                        <p><b>Language-Conditioned Imitation Learning</b><br>
+                                        Enables robots to imitate tasks based on language instructions.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>Future Directions in Robotics Control</h4>
+                                        
+                                        <p><b>Hybrid Control Strategies</b><br>
+                                        A <b>hybrid control strategy</b> leverages both a <b>model predictive controller</b> and a <b>learned policy</b> for optimal robotic control and adaptability.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>🤖 Robot Morphology</h4>
+                                        
+                                        <p>Exploring which <b>morphologies</b> (structural designs) are best suited for specific tasks and environments.</p>
+                                        
+                                        <p>With advancements in ML and AI, robotics continues to move towards creating versatile, intelligent systems that can operate reliably across diverse scenarios and environments.</p>
+                                        
+                                        <h4>🚀 Check Out My Project on Hugging Face</h4>
+                                        <p>I tried to solve a classical project in ML involving the <b>LunarLander</b> environment using the Proximal Policy Optimization (PPO) algorithm. In this task, an AI agent is trained to control a spacecraft and land it accurately on a lunar surface, all while managing its limited fuel and avoiding obstacles.</p>
+                                        <p>👉 You can view my project and try it out on Hugging Face: <a href="https://huggingface.co/SecchiAlessandro/ppo-LunarLander-Ale" target="_blank">ppo-LunarLander-Ale</a></p>
+                                                                            
+
+                                        <br>
+                                        <br>
+                                        <br>
+
+
+                                        <h3 class="mb-0"> Ethics of AI: Fairness, Trust, Trustworthiness, Transparency (11.2024)</h3>
+                                        <br>
+                                        
+                                        <p>In the development of AI, ethics play a crucial role in guiding the values and principles that underpin AI systems. Key concepts in this area include <b>Fairness</b>, <b>Trust</b>, <b>Trustworthiness</b>, and <b>Transparency</b>, all of which are essential for building AI that respects human rights and societal norms.</p>
+                                        
+                                        <br>
+                                        
+                                        <h4>🌐 Ethics, Trustworthy AI, and Responsible AI</h4>
+                                        <ul>
+                                            <li><b>Ethics of AI</b>: Defines the values we aim to uphold through AI systems, ensuring they align with human values and rights.</li>
+                                            <li><b>Trustworthy AI</b>: Guarantees that these ethical values are technically implemented and respected throughout the system.</li>
+                                            <li><b>Responsible AI</b>: Governs and enforces the ethical and trustworthy design, ensuring consistent application in real-world scenarios.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>📜 Main AI Regulations</h4>
+                                        <ul>
+                                            <li><b>2019 – Ethics Guidelines for Trustworthy AI</b>: A foundational document outlining core ethical principles in AI.</li>
+                                            <li><b>The European Union AI Act</b>: A regulatory framework focused on ensuring AI systems meet strict ethical and technical standards.</li>
+                                        </ul>
+                                        
+                                        <br>
+                                        
+                                        <h4>🔍 Transparency in AI</h4>
+                                        <p>Transparency is a key aspect of ethical AI, helping users understand and trust AI systems. It includes three major components:</p>
+                                        <ul>
+                                            <li><b>Traceability of Processes</b>: Keeping a record of all decisions and actions taken by AI systems, which helps track and understand their behavior.</li>
+                                            <li><b>Explainability of Machine Learning Models</b>: Providing clear explanations of how AI models reach their conclusions, making the decision-making process more u
+                                        
+
+                                    
                                         
                                                 
                                 </div>
