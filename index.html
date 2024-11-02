@@ -418,9 +418,7 @@
                                         
                                         <p>Indeed, at the end of the eighties, it was proved by <strong>George Cybenko</strong> that neural networks with only one hidden layer and bounded sigmoidal activation functions (i.e.,
                                         
-                                        <div class="equation">
-                                            lim<sub>x → ∞</sub>σ(x) → 1  and  lim<sub>x → −∞</sub>σ(x) → 0
-                                        </div>
+                                            lim<sub>x → ∞</sub>σ(x) → 1  and  lim<sub>x → −∞</sub>σ(x) → 
                                         
                                         can approximate generic classes of functions.</p>
                                         
@@ -452,7 +450,7 @@
                                         
                                         <p>For a given training data set (x<sub>i</sub>, y<sub>i</sub>, i = 1, ..., M), supervised learning means to find the parameters θ of a neural network such that a given loss function L is minimized.</p>
                                         
-                                        <h3>Optimization Challenge</h3>
+                                        <b>Optimization Challenge</b>
                                         
                                         <p>But how to deal with a non-linear, non-convex optimization problem with millions of parameters?</p>
                                         
@@ -524,15 +522,15 @@
                                             <li>An optimal policy must deliver the maximum expected return being in a given state.</li>
                                         </ul>
 
-                                        <img src="assets/img/ML4.png" width="520" height="222">
+                                        <img src="assets/img/ML4.png" width="100" height="33">
                                     
                                     
                                         
                                         <p>So the equations can be rewritten as follows:</p>
 
-                                        <img src="assets/img/ML5.png" width="520" height="222">
+                                        <img src="assets/img/ML5.png" width="100" height="33">
                                         <br>
-                                        <img src="assets/img/ML6.png" width="520" height="222">
+                                        <img src="assets/img/ML6.png" width="100" height="33">
                                         
                                         <ul>
                                             <li>If the environment is exactly known, solving for <span class="equation">v<sup>*</sup></span> or <span class="equation">q<sup>*</sup></span> directly delivers the optimal policy. Once the values are known, the optimal policy can be derived by always choosing the action that maximizes these values.</li>
