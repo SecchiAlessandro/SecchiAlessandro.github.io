@@ -412,7 +412,7 @@
                                         <br>
                                     <br>
 
-                                        <h2>Feed Forward Networks ⚡</h2>
+                                        <h4>Feed Forward Networks ⚡</h4>
 
                                         <p>One reason is the so-called <strong>universal approximation property</strong>, which already holds for shallow neural networks with arbitrary width, consisting of just one layer.</p>
                                         
@@ -437,7 +437,7 @@
                                             <li>The word <strong>convolution</strong> is rather a convention, coming from the replacement of the matrix vector product by a sort of convolution. Mathematically, it is actually a sliding dot product.</li>
                                         </ul>
                                         
-                                        <h2>Recurrent Neural Networks (RNNs) 🔄</h2>
+                                        <h4>Recurrent Neural Networks (RNNs) 🔄</h4>
                                         
                                         <p><strong>RNNs</strong> are a class of artificial neural networks for sequential data processing. They exhibit a temporal dynamic behavior where new inputs can enter, making them well-adapted for modeling and processing:</p>
                                         
@@ -449,7 +449,7 @@
                                         
                                         <p><strong>Hopfield Networks</strong> are a type of recurrent neural network.</p>
                                         
-                                        <h2>Supervised Learning 🎯</h2>
+                                        <h4>Supervised Learning 🎯</h4>
                                         
                                         <p>For a given training data set (x<sub>i</sub>, y<sub>i</sub>, i = 1, ..., M), supervised learning means to find the parameters θ of a neural network such that a given loss function L is minimized.</p>
                                         
@@ -461,7 +461,7 @@
                                             <li>With <strong>stochastic gradient descent</strong> where the gradient is replaced by an unbiased estimator.</li>
                                         </ul>
                                         
-                                        <h2>Reinforcement Learning (RL) 🕹️</h2>
+                                        <h4>Reinforcement Learning (RL) 🕹️</h4>
                                         
                                         <p><strong>Reinforcement Learning</strong> maximizes the notion of cumulative reward. It is one of three basic machine learning paradigms, alongside:</p>
                                         
@@ -470,7 +470,7 @@
                                             <li><strong>Unsupervised Learning</strong>: Process and interpret data based only on the input (i.e., clustering).</li>
                                         </ul>
                                         
-                                        <h3>Training with Self-Play</h3>
+                                        <b>Training with Self-Play</b>
                                         
                                         <p>The parameters of the network are randomly initialized and trained by <strong>self-play reinforcement learning</strong>. You select moves by <strong>Monte Carlo tree search</strong>, which gives – based on simulated games – probabilities π for the possible moves and game outcome z.</p>
                                         
@@ -481,7 +481,7 @@
                                             <li>Minimize the error between the predicted outcome v and the game outcome z, i.e., the loss function L.</li>
                                         </ul>
                                         
-                                        <h3>Main Definitions</h3>
+                                        <b>Main Definitions</b>
                                         
                                         <ul>
                                             <li><strong>Reward</strong> r: The agent's possibility to maximize the reward over time.</li>
@@ -495,18 +495,19 @@
                                         
                                         <p>So, the objective is to estimate the v function and q function.</p>
                                         
-                                        <h3>Model-Based vs. Model-Free RL</h3>
+                                        <h4>Model-Based vs. Model-Free RL</h4>
                                         
                                         <ul>
                                             <li><strong>Model-Based RL</strong>: When the model for the environment and reward function is known (e.g., a Markovian model to predict what happens inside the environment).</li>
                                             <li><strong>Model-Free RL</strong>: When model dynamics and rewards are unknown to the agent. The goal is to find the optimal policy while learning the model and rewards (with exploration and exploitation).</li>
                                         </ul>
                                         
-                                        <h3>Typical Method</h3>
+                                        <b>Typical Method</b>
                                         
                                         <p>Typical methods involve <strong>Discrete Time Finite Markov Decision Processes (MDP)</strong>.</p>
                                         
                                         <img src="assets/img/ML1.png" width="520" height="385">
+                                        <br>
                                         <img src="assets/img/ML2.png" width="520" height="385">
                                         
                                         <ul>
@@ -526,11 +527,12 @@
 
                                         <img src="assets/img/ML4.png" width="520" height="385">
                                     
-                                        <h3>Equation Rewrite</h3>
+                                        <b>Equation Rewrite</b>
                                         
                                         <p>So the equations can be rewritten as follows:</p>
 
                                         <img src="assets/img/ML5.png" width="520" height="385">
+                                        <br>
                                         <img src="assets/img/ML6.png" width="520" height="385">
                                         
                                         <ul>
@@ -538,7 +540,7 @@
                                             <li>Otherwise, in model-free scenarios, use <strong>value iteration algorithms</strong> (e.g., Q-learning or neural fitted Q-learning or deep policy-based algorithms).</li>
                                         </ul>
                                         
-                                        <h3>Q-Learning</h3>
+                                        <h4>Q-Learning</h4>
                                         
                                         <p>The agent explores the environment, tries different actions, and updates its <span class="equation">q(x, u)</span> values using this formula:</p>
                                         
@@ -551,7 +553,7 @@
                                             <li>Then train from the target neural network, get the loss function, and backpropagate to train the actual Q network.</li>
                                         </ol>
                                         
-                                        <h3>Deep Policy-Based Algorithms</h3>
+                                        <h4>Deep Policy-Based Algorithms</h4>
                                         
                                         <ul>
                                             <li>Policy-based algorithms directly learn the policy (the best actions) instead of learning the <span class="equation">v<sup>*</sup></span> or <span class="equation">q<sup>*</sup></span> functions first.</li>
