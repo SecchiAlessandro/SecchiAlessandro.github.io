@@ -150,6 +150,19 @@
                                          <br>
                                          <br>
                                          <img src="assets/img/GDP-Energy.jpg" width="513" height="385">
+  
+                                        <br>  
+                                        <br>
+
+
+                                        <p style="font-size: smaller; font-style: italic;">
+                                        This interview with Alessandro Secchi focuses on his background, his passion for sustainability and technology, and his work at Hitachi Energy. Secchi discusses his upbringing, his interest in sustainable energy and mobility, and how his childhood experiences influenced his career path. He describes his role as a control software engineer at Hitachi Energy and his involvement in a gold mine electrification project in Tanzania. He highlights the project's positive impact on the environment and local communities. He also shares his views on the role of technology and international collaboration in addressing climate change, and his aspirations for the future. Finally, he touches upon his personal growth and the lessons he learned from the people in Tanzania.
+                                        </p>
+
+                                        <audio controls>
+                                            <source src="assets/img/Energy-Interview.mp3" type="audio/mpeg">
+                                            
+                                        </audio>
                                       
 
                                 </div>
@@ -425,7 +438,7 @@
                                         <p><strong>Kurt Hornik</strong> showed in 1991 that it is not the specific choice of the activation function that leads to the universal approximation property, but that it works for generic continuous non-polynomial functions.</p>
                                         
                                         
-                                        <h4>CNN vs. Standard Feed Forward Networks 🖥️</h4>
+                                        <h5>CNN vs. Standard Feed Forward Networks 🖥️</h5>
                                         
                                         <p>A <strong>CNN</strong> (Convolutional Neural Network) differs from a standard feed forward neural network by the structure of hidden layers.</p>
                                         
@@ -434,7 +447,7 @@
                                             <li>The word <strong>convolution</strong> is rather a convention, coming from the replacement of the matrix vector product by a sort of convolution. Mathematically, it is actually a sliding dot product.</li>
                                         </ul>
                                         
-                                        <h4>Recurrent Neural Networks (RNNs) 🔄</h4>
+                                        <h5>Recurrent Neural Networks (RNNs) 🔄</h5>
                                         
                                         <p><strong>RNNs</strong> are a class of artificial neural networks for sequential data processing. They exhibit a temporal dynamic behavior where new inputs can enter, making them well-adapted for modeling and processing:</p>
                                         
@@ -446,7 +459,7 @@
                                         
                                         <p><strong>Hopfield Networks</strong> are a type of recurrent neural network.</p>
                                         
-                                        <h4>Supervised Learning 🎯</h4>
+                                        <h5>Supervised Learning 🎯</h5>
                                         
                                         <p>For a given training data set (x<sub>i</sub>, y<sub>i</sub>, i = 1, ..., M), supervised learning means to find the parameters θ of a neural network such that a given loss function L is minimized.</p>
                                         
@@ -458,7 +471,7 @@
                                             <li>With <strong>stochastic gradient descent</strong> where the gradient is replaced by an unbiased estimator.</li>
                                         </ul>
                                         
-                                        <h4>Reinforcement Learning (RL) 🕹️</h4>
+                                        <h5>Reinforcement Learning (RL) 🕹️</h5>
                                         
                                         <p><strong>Reinforcement Learning</strong> maximizes the notion of cumulative reward. It is one of three basic machine learning paradigms, alongside:</p>
                                         
@@ -492,7 +505,7 @@
                                         
                                         <p>So, the objective is to estimate the v function and q function.</p>
                                         
-                                        <h4>Model-Based vs. Model-Free RL</h4>
+                                        <h5>Model-Based vs. Model-Free RL</h5>
                                         
                                         <ul>
                                             <li><strong>Model-Based RL</strong>: When the model for the environment and reward function is known (e.g., a Markovian model to predict what happens inside the environment).</li>
@@ -536,7 +549,7 @@
                                             <li>Otherwise, in model-free scenarios, use <strong>value iteration algorithms</strong> (e.g., Q-learning or neural fitted Q-learning or deep policy-based algorithms).</li>
                                         </ul>
                                         
-                                        <h4>Q-Learning</h4>
+                                        <h5>Q-Learning</h5>
                                         
                                         <p>The agent explores the environment, tries different actions, and updates its <span class="equation">q(x, u)</span> values using this formula:</p>
                                         
@@ -549,7 +562,7 @@
                                             <li>Then train from the target neural network, get the loss function, and backpropagate to train the actual Q network.</li>
                                         </ol>
                                         
-                                        <h4>Deep Policy-Based Algorithms</h4>
+                                        <h5>Deep Policy-Based Algorithms</h5>
                                         
                                         <ul>
                                             <li>Policy-based algorithms directly learn the policy (the best actions) instead of learning the <span class="equation">v<sup>*</sup></span> or <span class="equation">q<sup>*</sup></span> functions first.</li>
@@ -562,21 +575,21 @@
 
                                         <br>
                                         
-                                        <h3 class="mb-0">Generative AI</h3>
+                                        <h4 class="mb-0">Generative AI</h4>
                                         <br>
                                         
                                         <p>Generative AI is typically powered by deep neural networks, especially transformer architectures, which excel at processing large datasets and understanding complex patterns.</p>
                                         <br>
                                         
-                                        <h4>Step-by-Step Through the Transformer with "Cat" 🐱</h4>
+                                        <h5>Step-by-Step Through the Transformer with "Cat" 🐱</h5>
                                         
-                                        <h5>1. Input Embedding and Positional Encoding</h5>
+                                        <b>1. Input Embedding and Positional Encoding</b>
                                         <ul>
                                             <li>Each word in the sentence "The cat sits" is first converted into an embedding vector. For example, the word "cat" could be transformed into a vector like: <b>[1.2, -0.8, 0.6, …]</b></li>
                                             <li>Then, positional encoding is added to this vector to capture the position of "cat" in the sentence. After adding positional encoding, "cat"’s vector might look like: <b>Embedding + PosEnc = [1.4, -0.7, 0.5, …]</b></li>
                                         </ul>
                                         
-                                        <h5>2. Self-Attention Mechanism 🤔</h5>
+                                        <b>2. Self-Attention Mechanism 🤔</b>
                                         <ul>
                                             <li>Generate the Query (Q), Key (K), and Value (V) vectors for each word. For "cat," let’s say:
                                                 <ul>
@@ -596,25 +609,25 @@
                                             <li>The attention output for "cat" is a weighted sum of Value vectors: <b>Attention Output<sub>cat</sub> = (0.1 ⋅ V<sub>the</sub>) + (0.8 ⋅ V<sub>cat</sub>) + (0.1 ⋅ V<sub>sits</sub>)</b></li>
                                         </ul>
                                         
-                                        <h5>3. Multi-Head Attention 🎯</h5>
+                                        <b>3. Multi-Head Attention 🎯</b>
                                         <ul>
                                             <li>With multiple heads, "cat" has different sets of Q, K, and V vectors per head, capturing various semantic aspects. Outputs from each head are concatenated and transformed to merge back together.</li>
                                         </ul>
                                         
-                                        <h5>4. Feed-Forward Network 🔄</h5>
+                                        <b>4. Feed-Forward Network 🔄</b>
                                         <ul>
                                             <li>The attention output for "cat" passes through a feed-forward network to add complexity: <b>FFN<sub>cat</sub> = ReLU(W<sub>1</sub> ⋅ Attention Output<sub>cat</sub> + b<sub>1</sub>) W<sub>2</sub> + b<sub>2</sub></b></li>
                                         </ul>
                                         
-                                        <h5>5. Adding and Normalizing 🌐</h5>
+                                        <b>5. Adding and Normalizing 🌐</b>
                                         <ul>
                                             <li>A residual connection and layer normalization are applied: <b>Output<sub>cat</sub> = LayerNorm(Embedding<sub>cat</sub> + FFN<sub>cat</sub>)</b></li>
                                         </ul>
                                         
-                                        <h4>Putting It All Together 🧩</h4>
+                                        <b>Putting It All Together 🧩</b>
                                         <p>After multiple layers, "cat" will be represented as a vector that captures its meaning in the sentence "The cat sits." This final vector is used for the next steps, like classification or generation. Each layer helps the model build richer contextual understanding, making "cat" aware of its relationship to "sits" and "the" based on the surrounding words and overall sentence meaning.</p>
                                         
-                                        <h4>Training Objective 🎯</h4>
+                                        <b>Training Objective 🎯</b>
                                         <p>For language models, the common training objective is to minimize the cross-entropy loss between the predicted sequence and the actual sequence.</p>
 
 
@@ -622,21 +635,21 @@
 
                                         <br>
                                         
-                                        <h3 class="mb-0"> ML in Robotics</h3>
+                                        <h4 class="mb-0"> ML in Robotics</h4>
                                         <br>
                                         
                                         <p>Machine Learning (ML) plays a crucial role in robotics, bringing more flexibility and adaptability to robotic systems. Let’s break down some core components of ML in robotics, including key concepts, challenges, and potential future directions.</p>
                                         
                                         <br>
                                         
-                                        <h4>📊 Formulate</h4>
+                                        <h5>📊 Formulate</h5>
                                         <ul>
                                             <li>Predicting or identifying patterns in data to understand and improve robotic functions.</li>
                                         </ul>
                                         
                                         <br>
                                         
-                                        <h4>🔍 Formalize</h4>
+                                        <h5>🔍 Formalize</h5>
                                         <ul>
                                             <li><b>Representation</b>: Choose models that represent data patterns well, such as:
                                                 <ul>
@@ -651,14 +664,14 @@
                                         
                                         <br>
                                         
-                                        <h4>🚀 Deploy</h4>
+                                        <h5>🚀 Deploy</h5>
                                         <ul>
                                             <li><b>MLOps</b>: Establish robust machine learning operations to ensure efficient deployment, monitoring, and scaling of models in robotics.</li>
                                         </ul>
                                         
                                         <br>
                                         
-                                        <h4>🤖 Control Strategies in Robotics</h4>
+                                        <h5>🤖 Control Strategies in Robotics</h5>
                                         
                                         <p><b>Classical Control</b><br>
                                         Breaks down the problem into <b>planning</b> and <b>control</b> phases, simplifying robotic task management.</p>
@@ -673,7 +686,7 @@
                                     
                                         <br>
                                         
-                                        <h4>🧠 Advanced Learning Techniques</h4>
+                                        <h5>🧠 Advanced Learning Techniques</h5>
                                         
                                         <ul>
                                             <li><b>Optimal Control</b>: Focuses on finding the best control policy for the robot.</li>
@@ -695,7 +708,7 @@
                                         
                                         <br>
                                         
-                                        <h4>🤔 Challenges in Building Generalist Robots</h4>
+                                        <h5>🤔 Challenges in Building Generalist Robots</h5>
                                         
                                         <ul>
                                             <li>Unstructured and unpredictable environments</li>
@@ -710,7 +723,7 @@
                                         
                                         <br>
                                         
-                                        <h4>Enhancing Robot Perception with AI</h4>
+                                        <h5>Enhancing Robot Perception with AI</h5>
                                         
                                         <p><b>Vision-Language Models</b><br>
                                         For advanced <b>robot perception</b>, merging vision and language.</p>
@@ -720,14 +733,14 @@
                                         
                                         <br>
                                         
-                                        <h4>Future Directions in Robotics Control</h4>
+                                        <h5>Future Directions in Robotics Control</h5>
                                         
                                         <p><b>Hybrid Control Strategies</b><br>
                                         A <b>hybrid control strategy</b> leverages both a <b>model predictive controller</b> and a <b>learned policy</b> for optimal robotic control and adaptability.</p>
                                         
                                         <br>
                                         
-                                        <h4>🤖 Robot Morphology</h4>
+                                        <h5>🤖 Robot Morphology</h5>
                                         
                                         <p>Exploring which <b>morphologies</b> (structural designs) are best suited for specific tasks and environments.</p>
                                         
@@ -741,14 +754,14 @@
                                         <br>
                                         
 
-                                        <h3 class="mb-0"> Ethics of AI: Fairness, Trust, Trustworthiness, Transparency</h3>
+                                        <h4 class="mb-0"> Ethics of AI: Fairness, Trust, Trustworthiness, Transparency</h4>
                                         <br>
                                         
                                         <p>In the development of AI, ethics play a crucial role in guiding the values and principles that underpin AI systems. Key concepts in this area include <b>Fairness</b>, <b>Trust</b>, <b>Trustworthiness</b>, and <b>Transparency</b>, all of which are essential for building AI that respects human rights and societal norms.</p>
                                         
                                         <br>
                                         
-                                        <h4>🌐 Ethics, Trustworthy AI, and Responsible AI</h4>
+                                        <h5>🌐 Ethics, Trustworthy AI, and Responsible AI</h5>
                                         <ul>
                                             <li><b>Ethics of AI</b>: Defines the values we aim to uphold through AI systems, ensuring they align with human values and rights.</li>
                                             <li><b>Trustworthy AI</b>: Guarantees that these ethical values are technically implemented and respected throughout the system.</li>
@@ -757,7 +770,7 @@
                                         
                                         <br>
                                         
-                                        <h4>📜 Main AI Regulations</h4>
+                                        <h5>📜 Main AI Regulations</h5>
                                         <ul>
                                             <li><b>2019 – Ethics Guidelines for Trustworthy AI</b>: A foundational document outlining core ethical principles in AI.</li>
                                             <li><b>The European Union AI Act</b>: A regulatory framework focused on ensuring AI systems meet strict ethical and technical standards.</li>
@@ -765,7 +778,7 @@
                                         
                                         <br>
                                         
-                                        <h4>🔍 Transparency in AI</h4>
+                                        <h5>🔍 Transparency in AI</h5>
                                         <p>Transparency is a key aspect of ethical AI, helping users understand and trust AI systems. It includes three major components:</p>
                                         <ul>
                                             <li><b>Traceability of Processes</b>: Keeping a record of all decisions and actions taken by AI systems, which helps track and understand their behavior.</li>
@@ -777,7 +790,7 @@
                                         <br>
 
 
-                                        <h4 class="mb-0"> Helpful Scripts for these notes</h4>
+                                        <h3 class="mb-0"> Helpful Scripts for these notes</h4>
                                         
                                         <p>👉 Check out my GitHub: <a href="https://github.com/SecchiAlessandro/LLM_Basics" target="_blank">LLM_Basics</a></p>
                                         
