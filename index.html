@@ -582,10 +582,16 @@
                                         
                                         <p><strong>Hopfield Networks</strong> are a type of recurrent neural network.</p>
                                         
-                                        <h5>Supervised Learning 🎯</h5>
+                                        <h5>Type of Trainings 🎯</h5>
                                         
-                                        <p>For a given training data set (x<sub>i</sub>, y<sub>i</sub>, i = 1, ..., M), supervised learning means to find the parameters θ of a neural network such that a given loss function L is minimized.</p>
-                                        
+                                        <ul>
+                                            <li><strong>Supervised Learning</strong>: Develop models to map input and output data (i.e., regression or classification).
+                                            <br>
+                                            For a given training data set (x<sub>i</sub>, y<sub>i</sub>, i = 1, ..., M), supervised learning means to find the parameters θ of a neural network such that a given loss function L is minimized.</li>
+                                            <br>
+                                            <li><strong>Unsupervised Learning</strong>: Process and interpret data based only on the input (i.e., clustering).</li>
+                                        </ul>
+                                    
                                         <b>Optimization Challenge</b>
                                         
                                         <p>But how to deal with a non-linear, non-convex optimization problem with millions of parameters?</p>
@@ -598,11 +604,7 @@
                                         
                                         <p><strong>Reinforcement Learning</strong> maximizes the notion of cumulative reward. It is one of three basic machine learning paradigms, alongside:</p>
                                         
-                                        <ul>
-                                            <li><strong>Supervised Learning</strong>: Develop models to map input and output data (i.e., regression or classification).</li>
-                                            <li><strong>Unsupervised Learning</strong>: Process and interpret data based only on the input (i.e., clustering).</li>
-                                        </ul>
-                                        
+
                                         <b>Training with Self-Play</b>
                                         
                                         <p>The parameters of the network are randomly initialized and trained by <strong>self-play reinforcement learning</strong>. You select moves by <strong>Monte Carlo tree search</strong>, which gives – based on simulated games – probabilities π for the possible moves and game outcome z.</p>
