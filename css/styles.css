@@ -10986,3 +10986,16 @@ section.resume-section .resume-section-content {
   font-family: Arial, sans-serif;
   text-align: center; /* Centers the content horizontally */
 }
+
+/* Custom responsive sidebar width */
+#sideNav {
+  width: 250px; /* Default width on large screens */
+}
+
+@media (max-width: 992px) {
+  #sideNav {
+    width: 100%; /* Make it full-width on medium/small screens */
+    position: relative; /* So it doesn't overlap content */
+  }
+}
+
