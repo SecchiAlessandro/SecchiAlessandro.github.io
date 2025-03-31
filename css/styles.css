@@ -10987,7 +10987,7 @@ section.resume-section .resume-section-content {
   text-align: center; /* Centers the content horizontally */
 }
 
-/* /* Custom responsive sidebar width */
+/* Custom responsive sidebar width */
 #sideNav {
   width: 250px; /* Default width on large screens */
 }
@@ -10997,5 +10997,5 @@ section.resume-section .resume-section-content {
     width: 100%; /* Make it full-width on medium/small screens */
     position: relative; /* So it doesn't overlap content */
   }
-} */
+}
 
