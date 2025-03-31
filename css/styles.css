@@ -8789,7 +8789,7 @@ textarea.form-control-lg {
     gap: 3rem !important;
   }
   .text-sm-start {
-    text-align: justify !important;
+    text-align: left !important;
   }
   .text-sm-end {
     text-align: right !important;
@@ -10998,4 +10998,3 @@ section.resume-section .resume-section-content {
     position: relative; /* So it doesn't overlap content */
   }
 }
-
