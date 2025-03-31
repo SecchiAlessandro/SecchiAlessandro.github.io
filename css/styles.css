@@ -166,6 +166,7 @@ h6, .h6 {
 }
 
 p {
+  text-align: justify;
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -8789,7 +8790,7 @@ textarea.form-control-lg {
     gap: 3rem !important;
   }
   .text-sm-start {
-    text-align: left !important;
+    text-align: justify !important;
   }
   .text-sm-end {
     text-align: right !important;
