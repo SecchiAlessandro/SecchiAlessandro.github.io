@@ -1,0 +1,256 @@
+/* Domain Knowledge Album Styles */
+.dk-album-wrapper {
+  margin: 2rem 0;
+  padding: 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--bs-body-font-family);
+}
+
+/* Book styling for Domain Knowledge Album */
+.dk-album {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  background-color: var(--bs-gray-100);
+  border-radius: var(--bs-border-radius);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  perspective: 1500px;
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+}
+
+/* Individual page styling */
+.dk-page {
+  display: none;
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--bs-white);
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  position: relative;
+  transform-origin: center left;
+  border-radius: 0 var(--bs-border-radius) var(--bs-border-radius) 0;
+  backface-visibility: hidden;
+}
+
+.dk-page.active {
+  display: block;
+}
+
+/* Page shadow effect */
+.dk-page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.1), transparent);
+  border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+}
+
+/* Page content styling */
+.dk-page figure {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.dk-page figcaption {
+  margin-top: 15px;
+  font-style: italic;
+  color: var(--bs-gray-600);
+  font-size: 0.9rem;
+  font-family: var(--bs-body-font-family);
+}
+
+.dk-page img {
+  max-width: 100%;
+  height: auto;
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color);
+  transition: opacity 0.3s ease;
+}
+
+/* Loading animation for images */
+.dk-page img.loading {
+  opacity: 0.5;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+/* Controls styling */
+.dk-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.dk-page-info {
+  font-size: 1rem;
+  color: var(--bs-gray-600);
+  font-family: var(--bs-body-font-family);
+}
+
+.dk-nav-button {
+  padding: 8px 20px;
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  border: none;
+  border-radius: var(--bs-border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: var(--bs-body-font-family);
+  font-weight: 500;
+}
+
+.dk-nav-button:hover:not(:disabled) {
+  background-color: #a24d2f; /* Darker shade of primary */
+}
+
+.dk-nav-button:disabled {
+  background-color: var(--bs-gray-400);
+  cursor: not-allowed;
+}
+
+/* Page turning animations */
+.dk-page.turning-forward {
+  animation: turnPageForward 0.5s ease forwards;
+}
+
+.dk-page.turning-backward {
+  animation: turnPageBackward 0.5s ease forwards;
+}
+
+@keyframes turnPageForward {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes turnPageBackward {
+  0% {
+    transform: rotateY(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* Section heading style to match site */
+.dk-section-heading {
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  color: var(--bs-gray-800);
+  text-transform: uppercase;
+}
+
+/* Reader mode toggle */
+.dk-reader-toggle {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.dk-reader-toggle button {
+  background: none;
+  border: 1px solid var(--bs-gray-400);
+  border-radius: var(--bs-border-radius);
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  color: var(--bs-gray-600);
+  cursor: pointer;
+}
+
+.dk-reader-toggle button:hover {
+  background-color: var(--bs-gray-200);
+}
+
+/* Reader mode styles */
+.dk-album.reader-mode {
+  background-color: #f8f5e9; /* Warm background for easier reading */
+}
+
+.dk-album.reader-mode .dk-page {
+  background-color: #fff9e6;
+  color: #333;
+  line-height: 1.6;
+}
+
+.dk-album.reader-mode .dk-page img {
+  max-width: 80%;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .dk-album {
+    padding: 30px;
+    min-height: 500px;
+  }
+  
+  .dk-page {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dk-album {
+    padding: 20px;
+    min-height: 400px;
+  }
+  
+  .dk-page {
+    padding: 15px;
+  }
+  
+  .dk-controls {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  
+  .dk-page-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .dk-nav-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .dk-album {
+    padding: 15px;
+    min-height: 300px;
+  }
+  
+  .dk-page {
+    padding: 10px;
+  }
+  
+  .dk-page figcaption {
+    font-size: 0.8rem;
+  }
+} 

@@ -1,0 +1,201 @@
+<context>
+
+# Overview
+
+This document outlines the requirements for a new "Domain Knowledge" section to be added to the "Thoughts" chapter featured on your personal blog's main page (`index.html`). The problem this feature solves is the need for a visually engaging and organized way to present domain-specific knowledge, experiences, or insights that are best conveyed through images, presented in an accessible and interactive diary or album format directly within the existing primary page content.
+
+This feature is for visitors of your blog who are interested in your professional insights and learnings, offering them a unique and memorable way to engage with your content without navigating away from the main page. The value lies in transforming abstract or complex domain knowledge into a more digestible and engaging visual narrative, enhancing user experience and knowledge retention on the primary landing page.
+
+# Core Features
+
+The "Domain Knowledge" section will function as a digital photo album integrated into `index.html` with the following core features:
+
+1.  **Integrated "Domain Knowledge" Sub-section:**
+
+      * **What it does:** Creates a dedicated area for the photo album directly within the existing "Thoughts" chapter or section of your `index.html` page.
+      * **Why it's important:** Organizes content logically within the main flow of your blog's primary page, making it easy for users to discover and access this specific type of information as they browse. It keeps the "Thoughts" chapter as the main thematic umbrella while providing a distinct interactive experience.
+      * **How it works at a high level:** This will involve adding a new HTML block (e.g., a `section` or `div` element) into the appropriate part of your `index.html` file's structure, specifically where the "Thoughts" content is located.
+
+2.  **Diary-Style Photo Album:**
+
+      * **What it does:** Displays a series of images, one per "page" of a digital album or book, within the designated section of `index.html`. Initially, this will be populated with 20 placeholder images.
+      * **Why it's important:** Provides the primary content delivery mechanism for the "Domain Knowledge" section, using a familiar and intuitive "album" metaphor.
+      * **How it works at a high level:** The new HTML block in `index.html` will contain a structure representing the album. Each "page" will be an HTML element (e.g., a `div`) primarily containing an `img` tag. The images will be loaded from the `src/assets/img/domain_knowledge/` directory (or a similar path like `assets/img/domain_knowledge/` depending on your Jekyll structure).
+
+3.  **Interactive Page-Turning UI:**
+
+      * **What it does:** Allows users to navigate through the album's pages using a visual "page-turning" effect, simulating the experience of flipping through a real book, all within `index.html`.
+      * **Why it's important:** Enhances user engagement and provides a more immersive and delightful experience compared to a simple image gallery or slideshow.
+      * **How it works at a high level:** This will be achieved using HTML for structure within `index.html`, CSS (either in an existing stylesheet referenced by `index.html` or a new one, or even inline styles if absolutely minimal) for styling the book/pages and creating the visual effect of a page, and JavaScript (in an existing script file loaded by `index.html`, a new linked script, or an inline script block within `index.html`) to handle user interactions to trigger the page turns. The goal is to keep this simple initially.
+
+# User Experience
+
+## User Personas
+
+  * **Curious Learner:** Someone visiting `index.html` to learn about your areas of expertise. They appreciate visual aids and novel ways of presenting information directly on the main page.
+  * **Professional Colleague/Recruiter:** Someone exploring your profile and work via `index.html`. A well-presented "Domain Knowledge" album can showcase practical experience and insights effectively.
+  * **Casual Browser:** A general visitor to your blog who might scroll through `index.html` and be drawn in by the interactive and visual nature of this embedded content.
+
+## Key User Flows
+
+1.  **Discovery and Navigation:**
+
+      * User lands on `index.html` and scrolls through the content.
+      * User reaches the "Thoughts" chapter/section and sees the embedded "Domain Knowledge" album.
+      * Alternatively, if a specific navigation element (like a header within "Thoughts") links to this album via an anchor ID, the user might click it to jump to the album section within `index.html`.
+
+2.  **Interacting with the Album:**
+
+      * User sees the cover or first page of the diary/album within `index.html`.
+      * User interacts with a page-turn mechanism (e.g., clicking a "next page" arrow, a corner of the page).
+      * The page visually "turns," revealing the next image/page, without a full page reload.
+      * User can navigate forwards and backwards through the 20 placeholder images.
+
+## UI/UX Considerations
+
+  * **Seamless Integration:** The album should feel like a natural part of `index.html`, not an obviously tacked-on component.
+  * **Simplicity:** The design should be clean and intuitive. The focus is on the images.
+  * **Book Metaphor:** The UI should visually suggest a book or diary.
+  * **Page Turn Affordance:** It should be clear how to turn pages.
+  * **Performance:** Since this is on `index.html`, the feature should not significantly degrade the page's load time or responsiveness. Placeholder images should be lightweight.
+  * **No Page Reloads:** Interactions with the album (like turning pages) must happen client-side without causing `index.html` to reload.
+
+</context>
+
+<PRD>
+
+# Technical Architecture
+
+Based on the likely use of Jekyll for your GitHub Pages site, with the album integrated into `index.html`:
+
+## System Components
+
+1.  **Jekyll Site & `index.html`:** The existing blog structure, with `index.html` being the target for the new section.
+2.  **HTML Block in `index.html`:** A new `section` or `div` element will be added directly into the markup of `index.html`, within the logical area of the "Thoughts" chapter. This block will contain the entire HTML structure for the photo album.
+      * An ID can be assigned to this main block (e.g., `id="domain-knowledge-album"`) for potential direct linking via URL fragment or for easier targeting by CSS/JS.
+3.  **CSS:**
+      * New CSS rules specific to the album, pages, and page-turning effect.
+      * These rules should ideally be added to an existing custom CSS file already linked in `index.html` to minimize new file requests. If a separate `album.css` is cleaner, ensure it's linked correctly from `index.html`.
+      * Use specific class names (e.g., `.dk-album-container`, `.dk-page`) to avoid conflicts with existing styles on `index.html`.
+4.  **JavaScript:**
+      * JavaScript logic for page-turning.
+      * This script can be added to an existing JavaScript file loaded by `index.html`, or as a new linked file (e.g., `album.js`), or as an inline `<script>` block within `index.html` (generally less preferred for larger scripts but viable for very simple logic if it doesn't clutter `index.html` too much).
+      * The script will listen for events on elements within the album's HTML block in `index.html`.
+5.  **Images:**
+      * Placeholder images (20 total), named sequentially.
+      * Stored in `src/assets/img/domain_knowledge/` (or `assets/img/domain_knowledge/`).
+
+## Data Models
+
+  * No complex data models. The list of image filenames will be part of the HTML structure within `index.html`.
+
+## APIs and Integrations
+
+  * No external APIs.
+  * Integration is with the existing `index.html` structure, and any existing CSS/JS files used by `index.html`.
+
+## Infrastructure Requirements
+
+  * GitHub Pages hosting.
+  * Local Jekyll development environment.
+  * Playwright-MCP server for UI testing.
+
+## Example HTML Structure within `index.html` (Conceptual - Text Description)
+
+Within `index.html`, inside the "Thoughts" section, you would add a primary `div` or `section` element (e.g., with `id="domain-knowledge-album"` and class `dk-album-wrapper`). Inside this, another `div` (e.g., class `dk-album`) would hold the page elements. Each page would be a `div` (e.g., class `dk-page`) containing an `img` tag pointing to a placeholder image. Navigation controls (buttons for "Previous" and "Next") would also be part of this HTML block. Liquid templating would be used for asset paths.
+
+# Development Roadmap
+
+## MVP Requirements (Phase 1)
+
+1.  **Image Asset Preparation:**
+      * Create/source 20 placeholder images.
+      * Place them in the image folder.
+2.  **HTML Block Integration into `index.html`:**
+      * Identify the correct insertion point within the "Thoughts" section of `index.html`.
+      * Add the HTML structure for the album container and individual pages (embedding the 20 placeholder images) directly into `index.html`.
+      * Add simple "Previous" and "Next" buttons within this block.
+3.  **Basic JavaScript for Page Navigation (within `index.html` context):**
+      * Implement JavaScript (inline in `index.html` or in a linked file) to show/hide pages sequentially using the buttons. The script must only target elements within the new album block.
+4.  **Minimal CSS Styling:**
+      * Add basic CSS rules (to an existing stylesheet or a new one linked by `index.html`) for image display and initial page stacking/visibility within the album block. Style navigation buttons.
+5.  **Testing:**
+      * Local Jekyll server testing of `index.html`.
+      * Test navigation and interaction with the album on `index.html` using playwright-mcp.
+
+## Phase 2: Enhanced UI & Book Styling
+
+1.  **Book-like CSS Styling:**
+      * Apply CSS to style the album elements within `index.html` to resemble a book.
+2.  **Simple Page-Turn Effect (CSS-based if possible):**
+      * Implement a basic visual page-turn effect within the album block.
+3.  **Improved Navigation Affordances:**
+      * Style navigation buttons more thematically.
+4.  **Testing:**
+      * Verify UI improvements on `index.html` locally and with playwright-mcp.
+
+## Future Enhancements (Post-MVP, Phase 3+)
+
+(These remain largely the same: Advanced Page-Turning, Responsive Design for the album block, Lazy Loading, Dynamic Content, Accessibility, Hover Effects.)
+
+# Logical Dependency Chain
+
+1.  **Foundation (Content & Basic Structure in `index.html`):**
+
+      * **Task 1:** Prepare and add placeholder images.
+      * **Task 2:** Identify the precise location in `index.html` within the "Thoughts" section for the album.
+      * **Task 3:** Insert the HTML block for the album (container, 20 pages with images, navigation buttons) into `index.html`.
+      * *Result: `index.html` now contains the static album structure, images visible but likely just stacked or sequential, no interactivity.*
+
+2.  **Basic Functionality (Navigation & Display Logic in `index.html`):**
+
+      * **Task 4:** Add minimal CSS (to an existing or new linked file) to initially show only the first page/image of the album block and hide others.
+      * **Task 5:** Implement JavaScript (inline in `index.html` or a linked file) targeting the album block's elements to handle clicks on "Previous" and "Next" buttons, showing/hiding the correct page.
+      * *Result: A functional album embedded in `index.html`. Core MVP.*
+
+3.  **UI Styling (Book Appearance in `index.html`):**
+
+      * **Task 6:** Apply CSS to style the album block in `index.html` to look like an open book.
+      * **Task 7:** Apply CSS to style individual pages within the album block.
+      * *Result: The embedded album looks more like a book.*
+
+4.  **Enhanced Interactivity (Page Turn Effect in `index.html`):**
+
+      * **Task 8:** Enhance JavaScript and CSS for the album block to create a visual page-turning effect.
+      * *Result: The embedded album has a more engaging page-turning visual.*
+
+5.  **Refinements & Testing:**
+
+      * **Task 9:** Refine CSS for overall look and feel, ensuring it harmonizes with the rest of `index.html`.
+      * **Task 10:** Thoroughly test `index.html`, focusing on the album's functionality and ensuring no other parts of the page are broken.
+
+# Risks and Mitigations
+
+1.  **Risk:** Cluttering `index.html` markup and potentially making it harder to maintain.
+
+      * **Mitigation:** Clearly comment the new HTML block. Keep the structure within the block as clean as possible. Ensure JavaScript and CSS are well-organized, even if parts are inline or in shared files.
+
+2.  **Risk:** CSS or JavaScript for the album conflicting with existing styles/scripts on `index.html`.
+
+      * **Mitigation:** Use highly specific CSS selectors (e.g., prefixing all album-related classes with `dk-` and potentially wrapping the entire album in a div with a unique ID). Ensure JavaScript is carefully scoped to only affect elements within the album block.
+
+3.  **Risk:** The "real book page turn" UI could become overly complex for direct integration into `index.html`.
+
+      * **Mitigation:** Start with the simplest possible page transition. If the "simple as possible" constraint is strict, this might mean very basic transitions.
+
+4.  **Risk:** Performance degradation of `index.html` due to added content and scripts.
+
+      * **Mitigation:** Ensure placeholder images are small. Optimize any new CSS/JS. Deferring script loading (`async`/`defer`) for the album's JS could be considered if it's non-critical for the initial view of `index.html` (though this adds slight complexity). For MVP, focus on lightweight implementation.
+
+5.  **Risk:** Difficulty in isolating and testing the new feature if `index.html` is very complex.
+
+      * **Mitigation:** Develop the HTML/CSS/JS for the album component somewhat modularly (even if it's destined for `index.html`) to allow for easier focused development before final integration.
+
+# Appendix
+
+  * **Image Naming Convention:** E.g., `dk_image_01.jpg`.
+  * **Placeholder Image Source:** Consider using a service like `https://via.placeholder.com/800x600.png?text=Domain+Knowledge+Page+1`.
+  * **Directory for images:** `src/assets/img/domain_knowledge/` (or adjust if `src/` isn't standard).
+  * **Testing with Playwright-MCP:** Ensure `index.html` can be launched and the embedded album interacted with to verify UI and functionality. Focus tests on the album's behavior and ensure no regressions elsewhere on `index.html`.
+
+</PRD>
