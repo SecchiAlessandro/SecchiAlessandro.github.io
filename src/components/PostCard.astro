@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, dateDisplay, topic } = post.data;
+
+const topicDot: Record<string, string> = {
+  thoughts: 'bg-phase-thoughts',
+  energy: 'bg-phase-energy',
+  ai: 'bg-phase-ai',
+};
+
+const date =
+  dateDisplay ??
+  pubDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const slug = post.id.split('/').pop();
+const href = `/${topic}/${slug}/`;
+---
+
+<article class="group rounded-lg border border-line bg-white/70 p-6 shadow-sm transition-shadow hover:shadow-md">
+  <a href={href} class="block focus-visible:outline-2 focus-visible:outline-copper">
+    <p class="meta-label mb-2 flex items-center gap-2">
+      <span class:list={['h-1.5 w-1.5 rounded-full', topicDot[topic]]} aria-hidden="true"></span>
+      {topic} · {date}
+    </p>
+    <h3 class="font-display text-2xl font-bold uppercase tracking-wide text-ink group-hover:text-copper">
+      {title}
+    </h3>
+    {description && <p class="mt-2 text-sm text-ink-soft">{description}</p>}
+  </a>
+</article>

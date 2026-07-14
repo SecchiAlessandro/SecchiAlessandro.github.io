@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import PhaseWave from '../components/PhaseWave.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, dateDisplay, topic } = post.data;
+
+const topicMeta: Record<string, { label: string; color: string }> = {
+  thoughts: { label: 'Thoughts', color: 'text-phase-thoughts' },
+  energy: { label: 'Energy', color: 'text-phase-energy' },
+  ai: { label: 'AI', color: 'text-phase-ai' },
+};
+
+const date =
+  dateDisplay ??
+  pubDate.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title={`${title} · Alessandro Secchi`} description={description}>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:py-16">
+    <header class="mb-10">
+      <p class="meta-label mb-3">
+        <a href={`/${topic}/`} class:list={['font-bold hover:underline', topicMeta[topic].color]}>
+          {topicMeta[topic].label}
+        </a>
+        <span aria-hidden="true"> — </span>
+        <time datetime={pubDate.toISOString()}>{date}</time>
+      </p>
+      <h1 class="display-title text-4xl sm:text-5xl">{title}</h1>
+      {description && <p class="mt-4 text-lg text-ink-soft">{description}</p>}
+      <PhaseWave class="mt-6" />
+    </header>
+
+    <div class="prose-article prose prose-slate max-w-none">
+      <slot />
+    </div>
+
+    <footer class="mt-12 border-t border-line pt-6">
+      <a href={`/${topic}/`} class="meta-label hover:text-copper">
+        ← Back to {topicMeta[topic].label}
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

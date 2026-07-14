@@ -1,0 +1,24 @@
+---
+interface Props {
+  src: string;
+  label?: string;
+  caption?: string;
+  autoplay?: boolean;
+}
+
+const { src, label, caption, autoplay = false } = Astro.props;
+---
+
+<figure class="mx-auto my-6 max-w-3xl rounded-lg border border-line bg-white/70 p-4 text-center shadow-sm">
+  {label && <p class="meta-label mb-3">{label}</p>}
+  <video
+    class="mx-auto h-auto max-w-full rounded"
+    controls
+    playsinline
+    {...autoplay ? { autoplay: true, muted: true, loop: true } : {}}
+  >
+    <source src={src} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  {caption && <figcaption class="mt-2 text-sm text-ink-soft">{caption}</figcaption>}
+</figure>

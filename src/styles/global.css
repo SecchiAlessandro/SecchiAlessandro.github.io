@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Palette — technical paper, blueprint ink, conductor copper, phase colors */
+  --color-paper: #fafbfc;
+  --color-ink: #22303f;
+  --color-ink-soft: #55637a;
+  --color-copper: #b4552d;
+  --color-copper-deep: #8f3f1d;
+  --color-phase-thoughts: #4a5d7e;
+  --color-phase-energy: #b4552d;
+  --color-phase-ai: #1f7a68;
+  --color-line: #e2e6eb;
+
+  /* Type */
+  --font-display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
+  --font-sans: "Mulish", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-paper text-ink font-sans antialiased;
+}
+
+/* Section titles use the display face site-wide */
+.display-title {
+  @apply font-display font-bold uppercase tracking-wide text-ink;
+}
+
+/* Engineering-log metadata (dates, labels) */
+.meta-label {
+  @apply font-mono text-xs uppercase tracking-widest text-ink-soft;
+}
+
+/* Long-form article prose — tune the typography plugin to the site voice.
+   Kept as plain CSS (not @apply) because prose-* variants only exist in markup. */
+.prose-article :where(h2, h3, h4) {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.prose-article :where(blockquote) {
+  border-left-color: var(--color-copper);
+  color: var(--color-ink-soft);
+}
+
+.prose-article :where(img, video) {
+  border-radius: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}

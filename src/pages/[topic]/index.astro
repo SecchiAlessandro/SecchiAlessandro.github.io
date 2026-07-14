@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import PhaseWave from '../../components/PhaseWave.astro';
+
+export function getStaticPaths() {
+  return [{ params: { topic: 'thoughts' } }, { params: { topic: 'energy' } }, { params: { topic: 'ai' } }];
+}
+
+const { topic } = Astro.params;
+
+const topicMeta: Record<string, { title: string; tagline: string; color: string }> = {
+  thoughts: {
+    title: 'Thoughts',
+    tagline: 'Reflections on leadership, travel and life — in a diary-style format.',
+    color: 'text-phase-thoughts',
+  },
+  energy: {
+    title: 'Energy',
+    tagline: 'The energy transition, electricity markets and power systems.',
+    color: 'text-phase-energy',
+  },
+  ai: {
+    title: 'AI',
+    tagline: 'Experiments, projects and study notes on artificial intelligence.',
+    color: 'text-phase-ai',
+  },
+};
+
+const meta = topicMeta[topic];
+
+const posts = (await getCollection('blog', (entry) => entry.data.topic === topic)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title={`${meta.title} · Alessandro Secchi`}
+  description={`${meta.title} — ${meta.tagline}`}
+>
+  <div class="mx-auto max-w-5xl px-4 py-12 sm:py-16">
+    <header class="mb-10">
+      <p class="meta-label mb-2">Writing</p>
+      <h1 class:list={['display-title text-5xl sm:text-6xl', meta.color]}>{meta.title}</h1>
+      <p class="mt-3 max-w-xl text-ink-soft">{meta.tagline}</p>
+      <PhaseWave class="mt-6" />
+    </header>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </div>
+</BaseLayout>

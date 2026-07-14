@@ -1,0 +1,16 @@
+---
+interface Props {
+  size?: 'lg' | 'sm';
+}
+
+const { size = 'lg' } = Astro.props;
+---
+
+<blockquote
+  class:list={[
+    'rounded-lg border border-line bg-white/70 px-6 py-5 shadow-sm',
+    size === 'lg' ? 'text-lg font-bold text-ink sm:text-xl' : 'text-sm italic text-ink-soft',
+  ]}
+>
+  <slot />
+</blockquote>

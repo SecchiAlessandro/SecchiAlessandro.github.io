@@ -9,6 +9,10 @@ dev-debug.log
 # Dependency directories
 node_modules/
 
+# Astro build output
+dist/
+.astro/
+
 # Environment variables
 .env
 
