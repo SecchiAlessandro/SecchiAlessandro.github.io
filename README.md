@@ -1,36 +1,80 @@
-# Alessandro Secchi - Personal Blog & Portfolio
+# Alessandro Secchi — Personal Blog & Portfolio
 
-This repository contains the source code for the personal website and blog of Alessandro Secchi, hosted via GitHub Pages at [https://secchialessandro.github.io/](https://secchialessandro.github.io/).
+Source code for [alessandrosecchi.com](https://alessandrosecchi.com) — the personal website and blog of Alessandro Secchi, hosted on GitHub Pages.
 
 ## Overview
 
-The site serves as a digital space for Alessandro to share:
+The site is a digital space to share:
+
 - Thoughts and reflections (particularly on Energy, AI, and Leadership)
 - Professional experiences and studies
 - Side projects and hobbies
 - Book readings
 
-It functions as a personal portfolio and a platform for documenting his journey and insights.
-
 ## Tech Stack
 
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Framework/Libraries:** Bootstrap 5, Font Awesome 6, Google Fonts, publicalbum.js
-- **Hosting:** GitHub Pages
+- **Framework:** [Astro](https://astro.build) — static site, zero JS by default
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com) + `@tailwindcss/typography`
+- **Content:** Markdown/MDX content collections (`src/content/blog/`)
+- **Fonts:** Saira Extra Condensed (display) + Mulish (body) via Fontsource
+- **Hosting:** GitHub Pages, deployed by GitHub Actions (`.github/workflows/deploy.yml`)
 
-## Project Documentation
+## Project Structure
 
-Detailed project documentation can be found in the `/project-docs` directory, including:
-- `overview.md`: High-level project goals and vision.
-- `requirements.md`: Features and system requirements.
-- `tech-specs.md`: Technical stack and coding standards.
-- `user-structure.md`: User flow and project file structure.
-- `timeline.md`: Project milestones and progress.
+```
+src/
+├── content/blog/        # Blog posts as .md/.mdx, one folder per topic
+│   ├── thoughts/
+│   ├── energy/
+│   └── ai/
+├── pages/
+│   ├── index.astro      # Home: about, experience, studies, projects, hobbies, books, contacts
+│   ├── [topic]/index.astro   # Topic listing pages (/thoughts/, /energy/, /ai/)
+│   └── [topic]/[slug].astro  # Individual post pages
+├── layouts/             # BaseLayout (shell), PostLayout (article pages)
+├── components/          # Nav, Footer, PostCard, GooglePhotos widgets, VideoEmbed, ...
+├── data/albums.ts       # Google Photos shared-album data used by the widgets
+├── assets/img/          # Images (optimized by Astro at build time)
+└── styles/global.css    # Tailwind theme tokens and base styles
+public/
+├── CNAME                # Custom domain for GitHub Pages
+└── media/               # Videos and audio served as-is
+```
+
+## Writing a New Post
+
+Add a Markdown file under `src/content/blog/<topic>/` (`topic` is `thoughts`, `energy` or `ai`):
+
+```markdown
+---
+title: My New Post
+description: One-line summary shown in listings and search results.
+pubDate: 2026-07-14
+dateDisplay: July 2026        # optional, overrides the formatted pubDate
+topic: energy
+---
+
+Post content in Markdown. Local images go in `src/assets/img/` and are
+referenced relatively: ![alt](../../../assets/img/picture.png)
+```
+
+Use the `.mdx` extension instead if the post embeds components (Google Photos albums, videos, YouTube):
+
+```mdx
+import VideoEmbed from '../../../components/VideoEmbed.astro';
+
+<VideoEmbed src="/media/clip.mp4" label="My clip" />
+```
 
 ## Development
 
-The website is built using a modified Bootstrap "Resume" theme. Development involves manual HTML/CSS/JS editing, with version control managed by Git.
+```bash
+npm install
+npm run dev       # dev server at localhost:4321
+npm run build     # production build to dist/
+npm run preview   # preview the production build
+```
 
-## Viewing the Site
+## Deployment
 
-Visit [https://secchialessandro.github.io/](https://secchialessandro.github.io/) to view the live site. 
+Every push to `main` triggers the GitHub Actions workflow, which builds the site and deploys it to GitHub Pages (Settings → Pages → Source must be set to "GitHub Actions"). The custom domain is kept via `public/CNAME`.

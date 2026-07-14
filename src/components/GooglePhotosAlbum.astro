@@ -1,0 +1,35 @@
+---
+/**
+ * Google Photos shared-album gallery, rendered by the publicalbum.js widget.
+ * The markup must match exactly what embed-ui.min.js expects; the CDN script
+ * is injected once per page by the guarded inline loader below.
+ */
+interface Props {
+  link: string;
+  title: string;
+  description?: string;
+  images: string[];
+}
+
+const { link, title, description, images } = Astro.props;
+---
+
+<div
+  class="pa-gallery-player-widget my-6"
+  style="width:100%; height:480px; display:none;"
+  data-link={link}
+  data-title={title}
+  data-description={description}
+>
+  {images.map((src) => <object data={src} aria-label={title}></object>)}
+</div>
+
+<script is:inline>
+  if (!window.__publicAlbumLoaded) {
+    window.__publicAlbumLoaded = true;
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/publicalbum@latest/embed-ui.min.js';
+    s.async = true;
+    document.head.appendChild(s);
+  }
+</script>

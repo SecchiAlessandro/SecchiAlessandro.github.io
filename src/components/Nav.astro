@@ -1,0 +1,94 @@
+---
+const topics = [
+  { label: 'Thoughts', href: '/thoughts/', dot: 'bg-phase-thoughts' },
+  { label: 'Energy', href: '/energy/', dot: 'bg-phase-energy' },
+  { label: 'AI', href: '/ai/', dot: 'bg-phase-ai' },
+];
+
+const anchors = [
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Studies', href: '/#education' },
+  { label: 'Projects', href: '/#side-projects' },
+  { label: 'Hobbies', href: '/#hobbies' },
+  { label: 'Books', href: '/#books' },
+  { label: 'Contacts', href: '/#contacts' },
+];
+
+const { pathname } = Astro.url;
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
+  <nav class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3" aria-label="Main">
+    <a href="/" class="font-display text-2xl font-bold uppercase tracking-wide text-ink hover:text-copper">
+      Alessandro Secchi
+    </a>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      class="rounded p-2 text-ink hover:text-copper focus-visible:outline-2 focus-visible:outline-copper lg:hidden"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="Toggle navigation"
+    >
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+
+    <ul
+      id="nav-menu"
+      class="absolute left-0 top-full hidden w-full flex-col gap-1 border-b border-line bg-paper px-4 pb-4 lg:static lg:flex lg:w-auto lg:flex-row lg:items-center lg:gap-5 lg:border-0 lg:p-0"
+    >
+      {
+        topics.map(({ label, href, dot }) => (
+          <li>
+            <a
+              href={href}
+              class:list={[
+                'flex items-center gap-1.5 py-2 font-display text-lg font-medium uppercase tracking-wide hover:text-copper lg:py-0',
+                pathname.startsWith(href) ? 'text-copper' : 'text-ink',
+              ]}
+            >
+              <span class:list={['h-1.5 w-1.5 rounded-full', dot]} aria-hidden="true" />
+              {label}
+            </a>
+          </li>
+        ))
+      }
+      <li aria-hidden="true" class="hidden h-4 w-px bg-line lg:block"></li>
+      {
+        anchors.map(({ label, href }) => (
+          <li>
+            <a
+              href={href}
+              class="block py-2 font-display text-lg font-medium uppercase tracking-wide text-ink-soft hover:text-copper lg:py-0"
+            >
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+    menu?.classList.toggle('flex', open);
+  });
+
+  // Close the mobile menu after choosing a destination
+  menu?.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a') && !menu.classList.contains('hidden')) {
+      menu.classList.add('hidden');
+      menu.classList.remove('flex');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>

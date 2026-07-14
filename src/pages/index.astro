@@ -1,0 +1,415 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import QuoteCard from '../components/QuoteCard.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
+import PhaseWave from '../components/PhaseWave.astro';
+import PostCard from '../components/PostCard.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import GooglePhotosCarousel from '../components/GooglePhotosCarousel.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import { albums } from '../data/albums';
+import profileImage from '../assets/img/Profile.jpg';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestPosts = posts.slice(0, 4);
+
+const books = [
+  ['Winning Opportunities', 'Raphael H. Cohen', 'Alternative to traditional business planning that provides a more effective way to convince investors through the Opportunity Case framework.'],
+  ['The Unbearable Lightness of Being', 'Milan Kundera', 'A 1984 philosophical novel exploring love, sex, and existence through four characters during the 1968 Prague Spring.'],
+  ['The Coming Wave', 'Mustafa Suleyman', 'An urgent warning about the unprecedented risks that AI and other fast-developing technologies pose to global order.'],
+  ['Rule #1', 'Phil Town', 'A step-by-step investing guide that teaches readers how to buy wonderful companies at attractive prices in just 15 minutes a week.'],
+  ['Why Nations Fail', 'Daron Acemoglu and James A. Robinson', 'Explains why nations develop differently through the role of inclusive versus extractive political and economic institutions.'],
+  ['Symposium', 'Plato', 'Ancient Greek philosophical dialogue.'],
+  ['Edipo Re', 'Sophocles', 'Tragic play by Sophocles.'],
+  ['Beyond Good and Evil', 'Nietzsche', 'Philosophical exploration of morality.'],
+  ['Il deserto dei Tartari', 'Dino Buzzati', 'Novel by Dino Buzzati about existentialism.'],
+  ['Metamorphosis', 'Kafka', 'A man transforms into insect.'],
+  ['The Stranger', 'Camus', 'Absurdist novel about alienation.'],
+  ['The Alchemist', 'Paulo Coelho', 'A timeless tale of adventure and self-discovery.'],
+  ['The World As I See It', 'Einstein', "Einstein's philosophical reflections."],
+  ['The Tao of Physics', 'Fritjof Capra', 'To explore the parallels between modern physics and Eastern mysticism.'],
+  ['The Order of Time', 'Carlo Rovelli', 'Challenges conventional views on time, revealing it as fragmented and subjective.'],
+  ['Helgoland', 'Carlo Rovelli', "To explore quantum mechanics' origins, emphasizing reality's interconnections and the observer's role."],
+  ['Silicon', 'Faggin', "Account of Silicon Valley's history."],
+  ['Nikola Tesla Biography', '', 'Life story of the inventor.'],
+  ['Alibaba', 'Duncan', 'Story of the e-commerce giant.'],
+  ['Steve Jobs Biography', '', "Biography of Apple's co-founder."],
+  ['Elon Musk Biography', '', 'Biography of the entrepreneur.'],
+  ['High Output Management', 'Andy Grove', 'Management guide by Andy Grove.'],
+  ['Justice', 'Sandel', 'Philosophical exploration of justice.'],
+  ['How to Avoid a Climate Disaster', 'Bill Gates', 'The solutions we have and the breakthroughs we need for the energy transition.'],
+  ['The Pillars of the Earth', 'Ken Follett', 'Medieval tale of ambition, love, betrayal, and cathedral construction saga.'],
+  ['The Changing World Order', 'Ray Dalio', 'Analysis of historical cycles shaping global geopolitics.'],
+  ['Outliers', 'Malcolm Gladwell', 'Success beyond talent, exploring cultural and environmental influences.'],
+];
+---
+
+<BaseLayout>
+  <!-- About / hero -->
+  <section id="about" class="scroll-mt-20">
+    <div class="mx-auto max-w-5xl px-4 py-16 sm:py-24">
+      <div class="flex flex-col items-center gap-10 sm:flex-row sm:items-start">
+        <Image
+          src={profileImage}
+          alt="Alessandro Secchi"
+          width={320}
+          class="h-40 w-40 shrink-0 rounded-full border-4 border-line object-cover shadow-md sm:h-48 sm:w-48"
+        />
+        <div class="text-center sm:text-left">
+          <h1 class="display-title text-5xl sm:text-7xl">
+            Alessandro <span class="text-copper">Secchi</span>
+          </h1>
+          <p class="meta-label mt-3">
+            Zürich, Switzerland — Bormio, Italy ·
+            <a href="mailto:asecchi@ethz.ch" class="text-copper hover:underline">asecchi@ethz.ch</a>
+          </p>
+          <p class="mt-2 text-sm italic text-ink-soft">
+            Electrical Engineer | Power &amp; Control Systems | MAS MTEC ETH | AI &amp; Energy Transition
+          </p>
+          <PhaseWave class="mx-auto mt-6 sm:mx-0" />
+        </div>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-3xl space-y-4">
+        <QuoteCard size="lg">
+          On a mission to discover the beauty of life and to accelerate this unprecedented energy
+          transition towards the singularity.
+        </QuoteCard>
+        <QuoteCard size="sm">
+          "Everything is energy, and that's all there is to it. Match the frequency of the reality
+          you want, and you cannot help but get that reality."
+        </QuoteCard>
+      </div>
+
+      <p class="mx-auto mt-12 max-w-2xl text-center text-xl text-ink">
+        This website aims to be a personal experiment where I'll endeavor to collect my thoughts,
+        reflections, experiences, and passions in a diary-style format 📔.
+      </p>
+
+      <VideoEmbed
+        src="/media/realskymap.mp4"
+        label="Real sky map — Waving in the Universe"
+        caption="🔊 Click to unmute"
+        autoplay
+      />
+    </div>
+  </section>
+
+  <!-- Latest writing -->
+  {
+    latestPosts.length > 0 && (
+      <Section id="writing" title="Latest Writing" eyebrow="Thoughts · Energy · AI">
+        <div class="grid gap-4 sm:grid-cols-2">
+          {latestPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/thoughts/" class="meta-label font-bold text-phase-thoughts hover:underline">
+            All Thoughts →
+          </a>
+          <a href="/energy/" class="meta-label font-bold text-phase-energy hover:underline">
+            All Energy →
+          </a>
+          <a href="/ai/" class="meta-label font-bold text-phase-ai hover:underline">
+            All AI →
+          </a>
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- Experience -->
+  <Section id="experience" title="Experience">
+    <div class="space-y-12">
+      <ExperienceItem title="Control Software Engineer" org="Hitachi Energy">
+        <GooglePhotosCarousel {...albums.anglogold} />
+      </ExperienceItem>
+
+      <ExperienceItem title="R&D Electrical Engineer" org="Schaffner Group">
+        <GooglePhotosCarousel {...albums.emc} />
+      </ExperienceItem>
+
+      <ExperienceItem
+        title="Co-Founder"
+        org="EMS — Energia e Mobilità Sostenibile"
+        period="January 2020 — February 2022"
+      >
+        <p>
+          Here the YouTube channel (Italian).
+          <a href="https://www.youtube.com/@univems/streams">Check it up!</a>
+        </p>
+        <GooglePhotosCarousel {...albums.ems} />
+      </ExperienceItem>
+    </div>
+  </Section>
+
+  <!-- Studies -->
+  <Section id="education" title="Studies">
+    <div class="space-y-12">
+      <ExperienceItem
+        title="ETH Zurich"
+        org="Master in Advanced Studies in Management and Economics"
+        period="2024 — 2026"
+      >
+        <p>
+          The MAS ETH MTEC is a management degree offered by ETH Zurich. It is an interdisciplinary
+          program similar to an MBA, targeted at engineers with a few years of leadership
+          experience.
+        </p>
+        <p><strong>Core courses in:</strong></p>
+        <ul>
+          <li>Strategic Management and Governance</li>
+          <li>Micro/Macro Economics with focus on Energy Economics and Policy</li>
+          <li>Financial Management, Accounting</li>
+          <li>Entrepreneurship Leadership</li>
+        </ul>
+      </ExperienceItem>
+
+      <ExperienceItem title="Silicon Valley Study Tour" period="August 2023">
+        <p>
+          Networking events, company visits (Meta, Google, Apple, Cisco, Synopsys, Stanford,
+          Pinterest, Capgemini, Uniphore) and Q&amp;A sessions throughout the innovation ecosystem
+          of the Bay Area, CA.
+          <br />💡 Inspiring and insightful opportunity to understand the mindset among the
+          entrepreneurs of Silicon Valley. After the tour, I embarked on a solo trip to Los Angeles,
+          Las Vegas, the Grand Canyon, and New York.
+          <br />Those months have been truly memorable, both personally and professionally. I guess
+          I will write some reflections about that genuine ambition I have experienced in SF, maybe
+          with some thoughts about AI and Energy 🚀.
+        </p>
+        <GooglePhotosCarousel {...albums.usa} />
+      </ExperienceItem>
+
+      <ExperienceItem
+        title="Politecnico di Milano"
+        org="Master's and Bachelor's degree in Electrical Engineering"
+        period="2016 — 2021"
+      >
+        <p>
+          Main Courses in Power Electronics, Electric Power Systems, Electric Propulsion, Electrical
+          Switching Devices, Electricity Market, Electromagnetic Compatibility.<br />
+          Extra Courses in Bayesian Statistics, Project Management, Autonomous Vehicles, Quantum
+          Physics.<br />
+          Grade: 110 Summa cum laude (4 GPA) 📚🤓.
+        </p>
+        <p>
+          <strong>Main Projects available on <a href="https://github.com/SecchiAlessandro">GitHub</a>:</strong>
+          (forgive me, it's a bit messy since I have used it merely as a repository than version
+          control)
+        </p>
+        <ul>
+          <li>High-frequency modeling of an automotive powertrain for optimal EMI filter design (Master Thesis)</li>
+          <li>Current sensor in current divider configuration for extended measurement range (Bachelor Thesis)</li>
+          <li>Simulation of a DC motor drive for a Tram with a reference speed profile</li>
+          <li>Field-Oriented Control of an induction motor of a train</li>
+          <li>Direct Torque Control for a Formula E car</li>
+          <li>AC Brushless control for Alfa Romeo induction motor</li>
+          <li>Electrical and thermal model for a slow and fast battery charge and driving cycle of an electric vehicle</li>
+          <li>Optimal solution to mitigate the contingencies (Correctable Emergency State) with a power Flow Analysis on Medium-Sized Systems. Focus on the effects of changes in generator, transformer, and shunt capacitor controls as well as of contingencies on the system bus voltages and transmission line flows</li>
+          <li>Transient stability simulation software to determine critical clearing times, to look at the impact of generator losses on system frequency and to consider methods to prevent short-term voltage collapse</li>
+          <li>Arc energy, Joule Energy, and actual (limited) current peak in the interruption of a resistive and inductive AC circuit by a limiting circuit breaker</li>
+          <li>Bayesian learning and Monte Carlo simulation of the dataset "Ames House Price"</li>
+          <li>Design of a residential PV plant with an energy storage system and its management strategy. Technical and economical study</li>
+          <li>Financial analysis of the TuNur's project: the first large utility-scale solar export project exploiting the technology of concentrated solar panels</li>
+        </ul>
+        <p><strong>Software:</strong> Matlab/Simulink, Femm, LTspice, R, PowerWorld, Python.</p>
+        <p><strong>Languages:</strong> Italian (mother tongue), English (fluent C1), German (basic).</p>
+        <GooglePhotosCarousel {...albums.polimi} />
+      </ExperienceItem>
+
+      <ExperienceItem
+        title="Tsinghua University"
+        org="China's energy transition"
+        period="June 2019 — August 2019"
+      >
+        <p>
+          Experiencing the emerging technology in the green transformation of China and its
+          environmental issues through lectures, targeted field trips, and transcultural teamwork
+          ♻️. Final presentation about CO2 capture reuse.
+          <br />There is a lot to say about this experience and my connection with China.. I guess
+          you can see it from my side projects. Anyway, sooner or later I will write some thoughts
+          about this too.
+        </p>
+        <GooglePhotosCarousel {...albums.tsinghua} />
+      </ExperienceItem>
+
+      <ExperienceItem title="Technical School" org="ITIS Enea Mattei" period="2011 — 2016">
+        <p>
+          Electrical specialization, final grade: 100/100. <br />
+          Thesis: "Turbocor TT300 — An Examination of an Oil-Free Magnetic Bearing Centrifugal
+          Compressor at Bormio Thermal Springs." This
+          <a href="https://drive.google.com/file/d/17WQm7arij2ac7lK9i9gdYvpDM4WPFo7K/view?pli=1">thesis</a>
+          delved into the comprehensive electrical and hydraulic system analysis of the thermal
+          resort in my hometown 🛁. The insights about those thermal baths that I got thanks to my
+          father are invaluable. This thesis is for him 👨‍🏫.
+          <br />Also, during my studies, I spent five years at the Salesian Boarding School.
+          Memorable years and still great sense of belonging thanks to the people I have met.
+        </p>
+        <GooglePhotosCarousel {...albums.itis} />
+      </ExperienceItem>
+    </div>
+  </Section>
+
+  <!-- Side Projects -->
+  <Section id="side-projects" title="Side Projects">
+    <div class="space-y-12">
+      <ExperienceItem title="Siemens Digital Academy">
+        <p>
+          Workshops and insights from "Casa Siemens" in Milan. We worked on the digital substation
+          business, configuring the overcurrent Siprotec 7SJ85 protection, testing its digital twin
+          and sending the data to the cloud (Mindsphere) via RTU (SICAM A8000).
+          <br />Really good atmosphere from Siemens' Milan environment.
+        </p>
+      </ExperienceItem>
+
+      <ExperienceItem title="Hackathons">
+        <p>
+          I've always had a keen interest in the startup world, constantly exploring ways to be
+          creative and seek out disruptive ideas. That's why I enjoyed the time spent with my geek
+          friends during these hackathons. We also managed to get good results! 🏆
+        </p>
+        <ul>
+          <li>
+            Winning the first prize at the Bosch #Restart hackathon for presenting an innovative
+            system tailored for restaurants and bars.
+            <a href="https://www.youtube.com/watch?v=0qjuW1191cM">Video Spot</a> and
+            <a href="https://www.youtube.com/watch?v=odtgbuAM0YY&t=3s">Presentation</a>.
+          </li>
+          <li>
+            First prize at the Campus Party Italy hackathon by designing a prototype of smart
+            glasses equipped with augmented reality and face recognition technology. These glasses
+            can potentially assist recruiters or sales managers in identifying targeted individuals.
+            <a href="https://www.youtube.com/watch?v=zkZ7vCkFzC8">Video Spot</a> and
+            <a href="https://www.laprovinciadisondrio.it/stories/sondrio-e-cintura/un-selfie-come-ponte-trovare-lavoro-premiata-lidea-dei-giovani-valtellinesi-o_1248630_11/">Press</a>.
+          </li>
+          <li>
+            Collaborating with two developers and institutional partners to create a mobile app for
+            the mountain lodge "SunnyValley." This app provides users with optimal routes for
+            hiking, cycling, and ski touring based on seasonal conditions, utilizing GPS tracking.
+            The app is available on the Google Play Store and Apple App Store.
+            <a href="https://play.google.com/store/apps/details?id=it.sunnyvalleyresort.sentieri&hl=en&pli=1">Play Store</a>
+            and <a href="https://youtu.be/ZbtXiUvtBLQ">Video Spot</a>.
+          </li>
+        </ul>
+        <GooglePhotosCarousel {...albums.hackathons} />
+      </ExperienceItem>
+
+      <ExperienceItem title="Students' representative">
+        <p>
+          As a representative for students at Politecnico di Milano's Electrical Engineering
+          department and during my time in high school, I focused on enhancing the department appeal
+          and organizing innovative events for 400+ students with local media coverage.<br />
+          ITIS' got talent is worth mentioning. It has been the first institute assembly attended by
+          all students since many years 🏫. We introduced innovative ways of interaction where many
+          people could show their talents.
+        </p>
+        <GooglePhotosCarousel {...albums.students} />
+      </ExperienceItem>
+
+      <ExperienceItem title="Intercultural exchanges">
+        <p>
+          <em>
+            "The most beautiful experience we can have is the mysterious. It is the fundamental
+            emotion that stands at the cradle of true art and true science. Whoever does not know it
+            and can no longer wonder, no longer marvel, is as good as dead, and his eyes are
+            dimmed."
+          </em>
+        </p>
+        <p>
+          I believe that our life has plenty of incredible mysteries that we can only uncover by
+          meeting new cultures 🤝.
+          <br />At just 14 years old, I embarked on a transformative journey to Malaysia, living
+          with an Asian family.
+          <br />Later, I found myself in Brighton, England, working in a traditional fish and chips,
+          trying to pay back my summer holiday with my best friend Francesco.
+          <br />Also during my studies, I have shared my accommodation with international students
+          (from Vietnam, Poland, France, Egypt, Russia, and China). During this time, I had the
+          privilege of acting in a short film crafted by my talented flatmate, Yuchen, a budding
+          director. Our collaboration earned recognition at the Macau International Short Film
+          Festival.
+          (<a href="https://drive.google.com/file/d/1_wmpKOoxepY7Fqu3emRL32VxIcjIkfXt/view?usp=sharing">Short-Film</a>).
+        </p>
+        <GooglePhotosCarousel {...albums.exchanges} />
+      </ExperienceItem>
+    </div>
+  </Section>
+
+  <!-- Hobbies -->
+  <Section id="hobbies" title="Hobbies">
+    <div class="space-y-12">
+      <ExperienceItem title="Volley">
+        <p>
+          I have been playing volleyball since I was 10 years old 🏐. Currently, I am the setter of
+          the Kanti Baden first league team. <br />
+          Over the past year we strive to break into the national league, coming close last season
+          but narrowly missing out in the tie break..<br />
+          ..When I'm not on the volleyball court, you can find me practicing in table tennis 🏓.
+        </p>
+        <GooglePhotosCarousel {...albums.sport} />
+      </ExperienceItem>
+
+      <ExperienceItem title="Piano">
+        <p>
+          When I'm feeling inspired, I play the piano. I play few classical songs and some
+          neo-classical composers such as Einaudi, Grinko, Yann Tiersen.. At the moment, I am
+          studying K397 Fantasie in D Minor from Mozart, even though my ultimate goal is Clair de
+          Lune from Debussy 🎹.
+          <br />
+          The video below is quite a memorable moment of mine. I was with my friend (still
+          Francesco) at the train station, improvising some piano songs. We were both 17 years old
+          at the time, returning from a summer camp. It was a fun experience though, we even earned
+          some decent money from it.
+        </p>
+        <GooglePhotosCarousel {...albums.piano} />
+      </ExperienceItem>
+
+      <ExperienceItem title="Mentoring and Associations">
+        <p>
+          <em>One way to remember who you are is to remember who your heroes are 🦸.</em>
+          <br />Over the years, I've been lucky enough to meet exceptional people who have become
+          both my friends and mentors.
+          <br />Also, I enjoy participating in various associations as I believe it's the most
+          effective way to learn, share, and have fun! Currently, I am involved in NOVA Talent and
+          Lead The Feature (mentoring and networking groups), as well as AEIT (Italian
+          Electrotechnical Association).
+        </p>
+      </ExperienceItem>
+    </div>
+  </Section>
+
+  <!-- Books -->
+  <Section id="books" title="Books">
+    <p class="mb-8 text-ink-soft">Still in progress, as I need to remember what I have read ... Favourite books:</p>
+    <ul class="grid gap-4 sm:grid-cols-2">
+      {
+        books.map(([title, author, blurb]) => (
+          <li class="rounded-lg border border-line bg-white/70 p-4 shadow-sm">
+            <p class="font-bold text-ink">
+              {title}
+              {author && <span class="font-normal text-ink-soft"> — {author}</span>}
+            </p>
+            <p class="mt-1 text-sm text-ink-soft">{blurb}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
+
+  <!-- Contacts -->
+  <Section id="contacts" title="Contacts">
+    <div class="flex flex-col items-start gap-6">
+      <p class="text-ink-soft">
+        Reach me at
+        <a href="mailto:asecchi@ethz.ch" class="text-copper hover:underline">asecchi@ethz.ch</a>
+        or on any of these:
+      </p>
+      <SocialLinks size="lg" />
+    </div>
+  </Section>
+</BaseLayout>
