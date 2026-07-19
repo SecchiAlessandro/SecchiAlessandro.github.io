@@ -8,7 +8,7 @@ topic: ai
 
 Human wellbeing ultimately depends on the progress of our society, and this progress thrives on scientific discoveries. It is not important whether these scientific breakthroughs come from a human or an artificial being, just as it might not be of fundamental importance if artificial beings feel and are "conscious" in the way we assume we are. Still, I find it truly fascinating how many people assume that human genius is merely an extrapolation of existing knowledge. Indeed, we regularly use combinational and exploratory knowledge in our daily lives, and some of us can even use transformational knowledge to break existing boundaries, to create something completely original, something far outside the realm of existing knowledge. But existing with respect to what?
 
-I believe machines can easily use combinational and exploratory knowledge, but what about going outside the boundaries of their training dataset? In a computational system, existing knowledge is inherently limited to the training dataset; in humans, this training dataset, our dynamic environment, constantly changes. Some people suggest that hallucinations, or simply increasing the temperature of an LLM, are similar to a human who stops blindly following existing rules and tries to explore entirely new paths.
+I believe machines can easily use combinational and exploratory knowledge, but what about going outside the boundaries of their training dataset? In a computational system, existing knowledge is inherently limited to the training dataset; in humans, this training dataset, our dynamic environment, constantly changes.
 
 I love the pattern between how we train a language model and how a person comes to be. Pre-training is remarkably like DNA. Evolution compressed billions of years of trial and error into a compact genome, and natural selection picked the resilient ones that survived. Pre-training an LLM is like our own evolutionary journey over the past 300,000 years.
 
@@ -16,9 +16,15 @@ Mid-training behaves just like our early life. Our unique character is shaped by
 
 Post-training is the world we are eventually released into. The surrounding environment, culture, relationships, and institutions provide an ongoing preference signal from the people around us, shaping our tone and values long after our base architecture is set—functioning closely to how RLHF guides an LLM.
 
-Yet, all these steps are deeply rooted in induction, relying on extrapolation from data. Perhaps what truly separates us from machines is the genuine "understanding" of these steps. Is the LLM actually "understanding" what it is predicting? Because I find this topic fascinating, and while I believe machines can certainly be creative in their own unique way, I also deeply hope they can never replicate the depth of human creativity for example in art and music. That is why, here, I tried to explore how some of our greatest human minds counter-argue this topic.
+Some people suggest that AI hallucinations, or simply increasing the temperature of an LLM, are similar to the human genius who stops blindly following existing rules and tries to explore entirely new paths.
 
-""
+Yet, all the LLM reasoning is rooted in induction, relying on extrapolation from data. Perhaps what truly separates us from machines is the genuine "understanding" of these steps. Or the dynamic, physic-based environment we are living in.
+
+Because I find this topic fascinating, and while I believe machines can certainly be creative in their own unique way, I also deeply hope they can never replicate the depth of human creativity for example in art and music. That is why, I wrote this premise before exploring how some of our greatest human minds counter-argue this topic.
+
+
+## Deutsch, Penrose, and the AI labs
+
 Evolution is the creation of knowledge through variation and selection. And yet, it is amazing that the DNA code has enough reach to describe everything from simple cells to dinosaurs and humans. Somenthing we still cannot fully explain.
 Nature holds many unresolved mysteries: the nature of qualia (feelings), and the "hard problem" of consciousness. Trying to achieve these artificially, without ever discovering those unknowns, cannot work. As long as we cannot explain the common language of art and music, why certain flowers look beautiful, or why we feel happy or sad, how can we expect to simulate any of it in a computer program?
 
