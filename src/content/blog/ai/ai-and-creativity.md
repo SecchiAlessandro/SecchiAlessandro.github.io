@@ -14,9 +14,9 @@ I love the pattern between how we train a language model and how a person comes 
 
 Mid-training behaves just like our early life. Our unique character is shaped by our early childhood experiences, driven by a natural form of reinforcement learning drawn from the tests given by our parents and teachers through reward and punishment.
 
-Post-training is the world we are eventually released into. The surrounding environment, culture, relationships, and institutions provide an ongoing preference signal from the people around us, shaping our tone and values long after our base architecture is set—functioning closely to how RLHF guides an LLM.
+Post-training is the world we are eventually released into. The surrounding environment, culture, relationships, and institutions provide an ongoing preference signal from the people around us, shaping our tone and values long after our base architecture is set, functioning closely to how RLHF guides an LLM.
 
-Some people suggest that AI hallucinations, or simply increasing the temperature of an LLM, are similar to the human genius who stops blindly following existing rules and tries to explore entirely new paths.
+Some people suggest that AI hallucinations, or simply increasing the temperature of an LLM, is similar to the human genius who stops blindly following existing rules and tries to explore entirely new paths.
 
 Yet, all the LLM reasoning is rooted in induction, relying on extrapolation from data. Perhaps what truly separates us from machines is the genuine "understanding" of these steps. Or the dynamic, physic-based environment we are living in.
 
@@ -29,10 +29,10 @@ Evolution is the creation of knowledge through variation and selection. And yet,
 Nature holds many unresolved mysteries: the nature of qualia (feelings), and the "hard problem" of consciousness. Trying to achieve these artificially, without ever discovering those unknowns, cannot work. As long as we cannot explain the common language of art and music, why certain flowers look beautiful, or why we feel happy or sad, how can we expect to simulate any of it in a computer program?
 
 AI is a computational process; it uses pre-existing knowledge to predict the next token. The question here is whether AI will be able to help us in this infinite expansion of knowledge. Some people try to answer to that question by answering to whether AI can be conscious, can "understand".
+Current AI is built on inductive principles: optimizing against training data or objective functions. So, it can recombine and extrapolate existing patterns, but it cannot originate genuinely new explanatory knowledge or question its own goals (so far).
 
 We, humans, are universal explainers, capable of creating explanations. New explanations create new problems, inevitable but soluble problems.
 David Deutsch argues that digital computers are universal too, similar to human brains. But the problem lies in the program that runs on them. Deutsch rejects induction (learning by extrapolating patterns from data) as a valid theory of knowledge at all. He holds that real creativity means generating new explanations through bold conjecture and error-correction, ideas that go beyond, and sometimes against, the data, rather than ones derived from it. Hardware is not the source of creativity. Even if we were able to recreate the brain, it wouldn't be creative on its own. What matters is the program running on it, the conjecture and criticism that generate new knowledge.
-Current AI is built on inductive principles: optimizing against training data or objective functions. So, it can recombine and extrapolate existing patterns, but it cannot originate genuinely new explanatory knowledge or question its own goals (so far).
 
 On the other hand, Penrose says no; a computational process, by definition, cannot be creative. He draws on Gödel's theorem: in any consistent formal system, there are specific true statements that cannot be proven within that system. In other words, any sufficiently powerful, consistent formal system will contain true statements that cannot be proven using its own rules. Because computation is bound by these formal systems, Penrose argues it cannot replicate the human mind's ability to recognize these unprovable truths. This suggests consciousness accesses something beyond computation.
 Penrose proposes that consciousness arises from quantum collapse in microtubules. When a quantum superposition reaches a threshold of mass-energy, the wave function collapses spontaneously. Penrose ties consciousness to these collapses (which are not yet proven).
@@ -45,7 +45,7 @@ If Deutsch is right, AGI is a software problem; that is, we need an algorithm fo
 
 If Penrose is right, AGI is a hardware/physics problem (we need quantum biological computing).
 
-And if Altman is right, true understanding is an emergent property of scaling laws, where a future iteration like GPT-8 might be able to solve quantum gravity through data alone.
+And if Sam Altman, and most of the AI labs, are right, true understanding is an emergent property of scaling laws, where a future iteration like GPT-8 might be able to solve quantum gravity through data alone.
 
 Probably, the day AI becomes conscious, and able to explain new knowledge on its own, will be the day we reach AGI.
 
